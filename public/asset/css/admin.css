@@ -1,0 +1,9 @@
+body aside div.sidebar .user-panel .info .d-block {
+  color: white;
+  font-weight: 550;
+}
+
+body aside div.sidebar nav ul ul.nav-treeview li a {
+  text-indent: 7px;
+}
+/*# sourceMappingURL=admin.css.map */
