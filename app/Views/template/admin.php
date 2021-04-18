@@ -88,15 +88,15 @@
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
                         <span class="dropdown-item dropdown-header"><img src="<?= base_url('asset/admin') ?>/dist/img/user2-160x160.jpg" class="img-circle " alt="User Image"> <strong>Administrator</strong></span>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="<?= base_url('profil') ?>" class="dropdown-item">
                             <i class="fas fa-user mr-2"></i> Profil
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="<?= base_url('pengaturan') ?>" class="dropdown-item">
                             <i class="fas fa-cog mr-2"></i> Pengaturan
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="<?= base_url('logout') ?>" class="dropdown-item">
                             <i class="fas fa-sign-out-alt mr-2"></i> Logout
                         </a>
                     </div>
@@ -112,10 +112,10 @@
 
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; 2021 - <?= date('Y') ?> <a href="https://sman1rawamerta.sch.id">SMA Negeri 1 Rawamerta</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.0.5
+                Made with <i class="fas fa-heart" style="color: red;"></i> by Muhamad Ramdani Hidayatullah
             </div>
         </footer>
 
