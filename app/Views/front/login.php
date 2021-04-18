@@ -50,7 +50,7 @@
     <div class="panels-container">
         <div class="panel left-panel">
             <div class="content">
-                <h3>New here?</h3>
+                <h3>PPDB SMA Negeri 1 Rawamerta</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In dolore optio ipsum cumque exercitationem, vero facere molestias assumenda? Accusamus, esse.</p>
                 <button class="btn transparent" id="sign-up-btn">Sign up</button>
             </div>
