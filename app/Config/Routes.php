@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Auth::login');
 $routes->get('/admin', 'Admin::dashboard');
+$routes->get('/pendaftar/tambah-pendaftar', 'Pendaftar::tambahPendaftar');
 
 /*
  * --------------------------------------------------------------------
