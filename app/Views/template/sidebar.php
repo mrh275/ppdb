@@ -74,6 +74,35 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Pengaturan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('pengaturan') ?>" class="nav-link">
+                                <i class="fas fa-cog nav-icon"></i>
+                                <p>Pengaturan Umum</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('pengaturan/user') ?>" class="nav-link">
+                                <i class="fas fa-user-cog nav-icon"></i>
+                                <p>Pengaturan User</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('pengaturan/user-level') ?>" class="nav-link">
+                                <i class="fas fa-user-shield nav-icon"></i>
+                                <p>User Level</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="<?= base_url('logout') ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
