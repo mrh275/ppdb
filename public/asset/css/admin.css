@@ -1,3 +1,18 @@
+body nav ul.navbar-nav li.dropdown a.nav-link img.img-circle {
+  max-width: 35px;
+  width: 100%;
+  position: relative;
+  top: -5px;
+}
+
+body nav ul.navbar-nav li.dropdown div.dropdown-menu span.dropdown-header img.img-circle {
+  max-width: 35px;
+  width: 100%;
+  position: relative;
+  top: -4px;
+  margin-right: 5px;
+}
+
 body aside div.sidebar .user-panel .info .d-block {
   color: white;
   font-weight: 550;
