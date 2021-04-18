@@ -36,6 +36,7 @@ $routes->get('/admin', 'Admin::dashboard');
 $routes->get('/pendaftar/tambah-pendaftar', 'Pendaftar::tambahPendaftar');
 $routes->get('/pendaftar/data-pendaftar', 'Pendaftar::dataPendaftar');
 $routes->get('/pendaftar/validasi-pendaftar', 'Pendaftar::validasiPendaftar');
+$routes->get('/pengaturan/user-level', 'Pengaturan::userLevel');
 
 /*
  * --------------------------------------------------------------------
