@@ -21,4 +21,122 @@ body aside div.sidebar .user-panel .info .d-block {
 body aside div.sidebar nav ul ul.nav-treeview li a {
   text-indent: 7px;
 }
+
+body div.content-wrapper .progressbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 40px 0;
+}
+
+body div.content-wrapper .progressbar .step {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+body div.content-wrapper .progressbar .step p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+body div.content-wrapper .progressbar .step p.active {
+  color: #28a745;
+}
+
+body div.content-wrapper .progressbar .step .bullet {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border: 2px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+body div.content-wrapper .progressbar .step .bullet.active {
+  border-color: #28a745;
+  background-color: #28a745;
+}
+
+body div.content-wrapper .progressbar .step .bullet.active span {
+  display: none;
+}
+
+body div.content-wrapper .progressbar .step .bullet:before,
+body div.content-wrapper .progressbar .step .bullet:after {
+  position: absolute;
+  content: "";
+  bottom: 20px;
+  right: -220px;
+  height: 4px;
+  width: 220px;
+  background-color: #262626;
+}
+
+body div.content-wrapper .progressbar .step .bullet.active:after {
+  background-color: #28a745;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-animation: animate 0.3s linear forwards;
+          animation: animate 0.3s linear forwards;
+}
+
+body div.content-wrapper .progressbar .step span {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 45px;
+  position: absolute;
+  left: 51%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+body div.content-wrapper .progressbar .step .check {
+  position: absolute;
+  left: 50%;
+  top: 66%;
+  font-size: 20px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+}
+
+body div.content-wrapper .progressbar .step .check.active {
+  display: block;
+  color: #fff;
+}
+
+body div.content-wrapper .progressbar .step:last-child .bullet:before,
+body div.content-wrapper .progressbar .step:last-child .bullet:after {
+  display: none;
+}
+
+body table.table-hover tbody tr:hover {
+  background-color: rgba(0, 119, 255, 0.3) !important;
+  cursor: pointer;
+}
+
+body table.table-hover tbody tr.selected {
+  background-color: rgba(0, 119, 255, 0.3);
+}
+
+@-webkit-keyframes animate {
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes animate {
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
 /*# sourceMappingURL=admin.css.map */

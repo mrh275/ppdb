@@ -48,4 +48,113 @@ body {
       }
     }
   }
+  div.content-wrapper {
+    .progressbar {
+      display: flex;
+      margin: 40px 0;
+
+      .step {
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        p {
+          font-size: 18px;
+          font-weight: 600;
+          color: #000;
+          margin-bottom: 8px;
+        }
+
+        p.active {
+          color: #28a745;
+        }
+
+        .bullet {
+          position: relative;
+          height: 50px;
+          width: 50px;
+          border: 2px solid #000;
+          display: inline-block;
+          border-radius: 50%;
+          transition: 0.2s;
+        }
+
+        .bullet.active {
+          border-color: #28a745;
+          background-color: #28a745;
+
+          span {
+            display: none;
+          }
+        }
+
+        .bullet:before,
+        .bullet:after {
+          position: absolute;
+          content: "";
+          bottom: 20px;
+          right: -220px;
+          height: 4px;
+          width: 220px;
+          background-color: #262626;
+        }
+
+        .bullet.active:after {
+          background-color: #28a745;
+          transform: scaleX(0);
+          transform-origin: left;
+          animation: animate 0.3s linear forwards;
+        }
+
+        span {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 45px;
+          position: absolute;
+          left: 51%;
+          transform: translateX(-50%);
+        }
+
+        .check {
+          position: absolute;
+          left: 50%;
+          top: 66%;
+          font-size: 20px;
+          transform: translate(-50%, -50%);
+          display: none;
+        }
+
+        .check.active {
+          display: block;
+          color: #fff;
+        }
+      }
+
+      .step:last-child {
+        .bullet:before,
+        .bullet:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  table.table-hover {
+    tbody {
+      tr:hover {
+        background-color: rgba(0, 119, 255, 0.3) !important;
+        cursor: pointer;
+      }
+
+      tr.selected {
+        background-color: rgba(0, 119, 255, 0.3);
+      }
+    }
+  }
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
 }
