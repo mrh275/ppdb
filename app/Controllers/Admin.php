@@ -10,7 +10,6 @@ class Admin extends BaseController
 
         $data = [
             'title'     => 'Dashboard | PPDB SMA Negeri 1 Rawamerta',
-            'webpage'   => 'dashboard',
         ];
 
         return view('front/admin', $data);
