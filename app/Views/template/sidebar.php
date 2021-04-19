@@ -43,8 +43,8 @@
                         </a>
                     <?php endif; ?>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview menu-open active">
+                    <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Data Pendaftar
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('pendaftar/data-pendaftar') ?>" class="nav-link">
+                            <a href="<?= base_url('pendaftar/data-pendaftar') ?>" class="nav-link active">
                                 <i class="fas fa-user nav-icon"></i>
                                 <p>Data Pendaftar</p>
                             </a>
@@ -117,4 +117,8 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+<script>
+    $('')
+</script>
 <?= $this->endSection() ?>
