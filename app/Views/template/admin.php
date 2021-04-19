@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="<?= base_url('asset/admin') ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
     <link rel="stylesheet" href="<?= base_url('asset/admin') ?>/plugins/jqvmap/jqvmap.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url('asset/admin') ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('asset/admin') ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('asset/admin') ?>/dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
@@ -58,19 +61,25 @@
     <script src="<?= base_url('asset/admin') ?>/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="<?= base_url('asset/admin') ?>/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- DataTables -->
+    <script src="<?= base_url('asset/admin') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url('asset/admin') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url('asset/admin') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url('asset/admin') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?= base_url('asset/admin') ?>/dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="<?= base_url('asset/admin') ?>/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('asset/admin') ?>/dist/js/demo.js"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-white sticky-top navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -128,6 +137,7 @@
     <!-- ./wrapper -->
 
 
+    <script src="<?= base_url('asset/js') ?>/app.js"></script>
 </body>
 
 </html>
