@@ -274,7 +274,7 @@
                         showConfirmButton: false
                     }).then(
                         (dismiss) => {
-                            progressBarNext();
+                            progressBarNext(1);
                             formOrangtua();
                         }
                     )
