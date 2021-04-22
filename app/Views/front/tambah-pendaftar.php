@@ -125,14 +125,68 @@
         });
     }
 
-    function progressBarNext() {
+    function formPeriodik() {
+        $.ajax({
+            url: "<?= base_url('pendaftar/formperiodik'); ?>",
+            dataType: "json",
+            success: function(response) {
+                $('.form-ppdb .form-data-orangtua').addClass('left');
+                $('.form-ppdb').html("");
+                $('.form-ppdb').html(response.data);
+                setTimeout(function() {
+                    $('.form-periodik').addClass('open');
+                }, 300);
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    }
+
+    function formUpload() {
+        $.ajax({
+            url: "<?= base_url('pendaftar/formupload'); ?>",
+            dataType: "json",
+            success: function(response) {
+                $('.form-ppdb .form-periodik').addClass('left');
+                $('.form-ppdb').html("");
+                $('.form-ppdb').html(response.data);
+                setTimeout(function() {
+                    $('.form-upload').addClass('open');
+                }, 300);
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    }
+
+    function previewCetak() {
+        $.ajax({
+            url: "<?= base_url('pendaftar/previewcetak'); ?>",
+            dataType: "json",
+            success: function(response) {
+                $('.form-ppdb .form-upload').addClass('left');
+                $('.form-ppdb').html("");
+                $('.form-ppdb').html(response.data);
+                setTimeout(function() {
+                    $('.previewCetak').addClass('open');
+                }, 300);
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    }
+
+    function progressBarNext(page) {
         // const next = $('.btn-simpan');
         // const prev = $('.previous');
         const progressText = document.querySelectorAll(".step p");
         const progressCheck = document.querySelectorAll(".step .check");
         const bullet = document.querySelectorAll(".step .bullet");
         let max = 4;
-        let current = 1;
+        let current = page;
 
         bullet[current - 1].classList.add('active');
         progressCheck[current - 1].classList.add('active')
