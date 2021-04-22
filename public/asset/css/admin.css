@@ -155,6 +155,58 @@ body .previewCetak.open {
   left: 0 !important;
 }
 
+body .previewCetak .table img.logo {
+  max-width: 117px;
+  width: 100%;
+  padding-top: 10px;
+}
+
+body .previewCetak .table tr td {
+  padding: 0 0 0 20px !important;
+  position: relative;
+  z-index: 2;
+}
+
+body .previewCetak .table tr td img.watermark {
+  position: absolute;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 43px;
+  z-index: 1;
+  left: 20%;
+  opacity: 0.1;
+}
+
+body .previewCetak .table tr.head-bukti {
+  border-bottom: 3px solid #000 !important;
+}
+
+body .previewCetak .table tr.head-bukti td.head-bukti {
+  padding: 0 0 0 0 !important;
+}
+
+body .previewCetak .table tr.head-bukti p {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+body .previewCetak .table tr.head-bukti p:nth-child(1),
+body .previewCetak .table tr.head-bukti p:nth-child(2),
+body .previewCetak .table tr.head-bukti p:nth-child(3) {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+body .previewCetak .table tr.head-bukti p:nth-child(4) {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+body .previewCetak .table tr.head-bukti p:nth-child(5),
+body .previewCetak .table tr.head-bukti p:nth-child(6) {
+  font-size: 12px;
+}
+
 @-webkit-keyframes animate {
   100% {
     -webkit-transform: scaleX(1);
