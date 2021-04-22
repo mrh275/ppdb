@@ -51,4 +51,47 @@ class Pendaftar extends BaseController
 			exit('Halaman tidak ditemukan');
 		}
 	}
+
+	public function formPeriodik()
+	{
+
+		if ($this->request->isAJAX()) {
+
+			$msg = [
+				'data' => view('form/periodik')
+			];
+
+			echo json_encode($msg);
+		} else {
+			exit('Halaman tidak ditemukan!');
+		}
+	}
+
+	public function formUpload()
+	{
+
+		if ($this->request->isAJAX()) {
+			$msg = [
+				'data' => view('form/upload')
+			];
+
+			echo json_encode($msg);
+		} else {
+			exit('Halaman tidak ditemukan!');
+		}
+	}
+
+	public function previewCetak()
+	{
+
+		if ($this->request->isAJAX()) {
+			$msg = [
+				'data' => view('form/cetak')
+			];
+
+			echo json_encode($msg);
+		} else {
+			exit('Halaman tidak ditemukan!');
+		}
+	}
 }
