@@ -29,6 +29,7 @@ class BaseController extends Controller
 	 */
 	protected $helpers = ['form', 'url'];
 
+
 	/**
 	 * Constructor.
 	 *
@@ -45,5 +46,6 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+		session();
 	}
 }
