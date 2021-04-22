@@ -162,14 +162,20 @@ body {
     left: -1920px !important;
   }
 
-  .form-data-orangtua {
+  .form-data-orangtua,
+  .form-periodik,
+  .form-upload,
+  .previewCetak {
     position: relative;
     left: 1920px;
     padding: 16px 16px;
     transition: 0.3s;
   }
 
-  .form-data-orangtua.open {
+  .form-data-orangtua.open,
+  .form-periodik.open,
+  .form-upload.open,
+  .previewCetak.open {
     left: 0 !important;
   }
 }

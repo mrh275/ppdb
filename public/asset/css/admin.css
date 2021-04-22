@@ -137,7 +137,10 @@ body .form-biodata.left {
   left: -1920px !important;
 }
 
-body .form-data-orangtua {
+body .form-data-orangtua,
+body .form-periodik,
+body .form-upload,
+body .previewCetak {
   position: relative;
   left: 1920px;
   padding: 16px 16px;
@@ -145,7 +148,10 @@ body .form-data-orangtua {
   transition: 0.3s;
 }
 
-body .form-data-orangtua.open {
+body .form-data-orangtua.open,
+body .form-periodik.open,
+body .form-upload.open,
+body .previewCetak.open {
   left: 0 !important;
 }
 
