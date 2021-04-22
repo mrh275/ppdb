@@ -84,6 +84,7 @@ class Pendaftar extends BaseController
 	public function previewCetak()
 	{
 
+
 		if ($this->request->isAJAX()) {
 			$msg = [
 				'data' => view('form/cetak')
