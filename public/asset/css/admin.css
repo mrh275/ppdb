@@ -126,6 +126,29 @@ body table.table-hover tbody tr.selected {
   background-color: rgba(0, 119, 255, 0.3);
 }
 
+body .form-biodata {
+  position: relative;
+  left: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+body .form-biodata.left {
+  left: -1920px !important;
+}
+
+body .form-data-orangtua {
+  position: relative;
+  left: 1920px;
+  padding: 16px 16px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+body .form-data-orangtua.open {
+  left: 0 !important;
+}
+
 @-webkit-keyframes animate {
   100% {
     -webkit-transform: scaleX(1);

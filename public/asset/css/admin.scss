@@ -151,6 +151,27 @@ body {
       }
     }
   }
+
+  .form-biodata {
+    position: relative;
+    left: 0;
+    transition: 0.3s;
+  }
+
+  .form-biodata.left {
+    left: -1920px !important;
+  }
+
+  .form-data-orangtua {
+    position: relative;
+    left: 1920px;
+    padding: 16px 16px;
+    transition: 0.3s;
+  }
+
+  .form-data-orangtua.open {
+    left: 0 !important;
+  }
 }
 
 @keyframes animate {
