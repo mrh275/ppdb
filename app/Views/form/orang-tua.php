@@ -233,8 +233,40 @@
 
 <div class="row mt-3">
     <div class="col-lg-12 d-flex justify-content-end">
-        <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+        <button class="btn btn-primary btn-simpan" type="button" name="submit">Submit</button>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.btn-simpan').click(function() {
+            Swal.fire({
+                title: 'Sedang menyimpan data',
+                timer: 1000,
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                onOpen: function() {
+                    Swal.showLoading()
+                }
+            }).then(
+                (dismiss) => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Yeay!',
+                        text: 'Data berhasil disimpan',
+                        timer: 1000,
+                        showConfirmButton: false
+                    }).then(
+                        (dismiss) => {
+                            progressBarNext(2);
+                            formPeriodik();
+                        }
+                    )
+                }
+            );
+
+        });
+    });
+</script>
 
 <?= form_close() ?>
