@@ -31,6 +31,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('asset/css') ?>/admin.css">
+    <link rel="stylesheet" href="<?= base_url('asset/node_modules/sweetalert2/dist') ?>/sweetalert2.css">
 
     <!-- JS Plugins -->
     <!-- jQuery -->
@@ -72,6 +73,7 @@
     <script src="<?= base_url('asset/admin') ?>/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('asset/admin') ?>/dist/js/demo.js"></script>
+    <script src="<?= base_url('asset/node_modules/sweetalert2/dist') ?>/sweetalert2.all.js"></script>
 
 </head>
 
