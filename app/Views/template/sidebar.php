@@ -45,22 +45,52 @@
                     <?php foreach ($listMenu as $mainMenu) : ?>
                         <?php if ($slug == $mainMenu['slug_menu']) : ?>
                 <li class="nav-item menu-open <?= $mainMenu['class_menu'] . ' ' . $mainMenu['has_submenu'] ?>">
-                    <a href="<?= $mainMenu['url_menu'] ?>" class="nav-link active">
-                        <i class="nav-icon <?= $mainMenu['menu_icon'] ?>"></i>
-                        <p>
-                            <?= $mainMenu['menu'] ?>
-                            <i class="<?= $mainMenu['drop_icon'] ?>"></i>
-                        </p>
-                    <?php else : ?>
+                    <?php if ($mainMenu['has_submenu'] == '') : ?>
+                        <a href="<?= base_url($mainMenu['url_menu']) ?>" class="nav-link active">
+                        <?php else : ?>
+                            <a href="javascript:void(0)" class="nav-link active">
+                            <?php endif; ?>
+
+                            <i class="nav-icon <?= $mainMenu['menu_icon'] ?>"></i>
+                            <p>
+                                <?= $mainMenu['menu'] ?>
+                                <i class="<?= $mainMenu['drop_icon'] ?>"></i>
+                            </p>
+                        <?php else : ?>
                 <li class="nav-item <?= $mainMenu['class_menu'] . ' ' . $mainMenu['has_submenu'] ?>">
-                    <a href="<?= $mainMenu['url_menu'] ?>" class="nav-link">
-                        <i class="nav-icon <?= $mainMenu['menu_icon'] ?>"></i>
-                        <p>
-                            <?= $mainMenu['menu'] ?>
-                            <i class="<?= $mainMenu['drop_icon'] ?>"></i>
-                        </p>
-                    <?php endif; ?>
-                    </a>
+                    <?php if ($mainMenu['has_submenu'] == '') : ?>
+                        <a href="<?= base_url($mainMenu['url_menu']) ?>" class="nav-link">
+                        <?php else : ?>
+                            <a href="javascript:void(0)" class="nav-link">
+                            <?php endif; ?>
+                            <i class="nav-icon <?= $mainMenu['menu_icon'] ?>"></i>
+                            <p>
+                                <?= $mainMenu['menu'] ?>
+                                <i class="<?= $mainMenu['drop_icon'] ?>"></i>
+                            </p>
+                        <?php endif; ?>
+                            </a>
+                            <?php if ($mainMenu['has_submenu'] == 'has-treeview') : ?>
+                                <ul class="nav nav-treeview">
+                                    <?php
+                                    $menuId = $mainMenu['id'];
+                                    $this->submenu = new \App\Models\MenuModel();
+                                    $submenu = $this->submenu->getSubMenu($menuId);
+                                    ?>
+                                    <?php foreach ($submenu as $sm) : ?>
+                                        <li class="nav-item">
+                                            <?php if ($submenuSlug == $sm['slug_submenu']) : ?>
+                                                <a href="<?= base_url($sm['url_menu']) ?>" class="nav-link active">
+                                                <?php else : ?>
+                                                    <a href="<?= base_url($sm['url_submenu']) ?>" class="nav-link">
+                                                    <?php endif; ?>
+                                                    <i class="<?= $sm['submenu_icon'] ?>"></i>
+                                                    <p><?= $sm['submenu_name'] ?></p>
+                                                    </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
                 </li>
             <?php endforeach; ?>
             <!-- </li>
