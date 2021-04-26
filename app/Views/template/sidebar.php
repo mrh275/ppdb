@@ -27,7 +27,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <?php if ($title == 'Dashboard | PPDB SMA Negeri 1 Rawamerta') : ?>
+                    <?php if ($slug == 'dashboard') : ?>
                         <a href="<?= base_url('admin') ?>" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -42,7 +42,28 @@
                             </p>
                         </a>
                     <?php endif; ?>
+                    <?php foreach ($listMenu as $mainMenu) : ?>
+                        <?php if ($slug == $mainMenu['slug_menu']) : ?>
+                <li class="nav-item menu-open <?= $mainMenu['class_menu'] . ' ' . $mainMenu['has_submenu'] ?>">
+                    <a href="<?= $mainMenu['url_menu'] ?>" class="nav-link active">
+                        <i class="nav-icon <?= $mainMenu['menu_icon'] ?>"></i>
+                        <p>
+                            <?= $mainMenu['menu'] ?>
+                            <i class="<?= $mainMenu['drop_icon'] ?>"></i>
+                        </p>
+                    <?php else : ?>
+                <li class="nav-item <?= $mainMenu['class_menu'] . ' ' . $mainMenu['has_submenu'] ?>">
+                    <a href="<?= $mainMenu['url_menu'] ?>" class="nav-link">
+                        <i class="nav-icon <?= $mainMenu['menu_icon'] ?>"></i>
+                        <p>
+                            <?= $mainMenu['menu'] ?>
+                            <i class="<?= $mainMenu['drop_icon'] ?>"></i>
+                        </p>
+                    <?php endif; ?>
+                    </a>
                 </li>
+            <?php endforeach; ?>
+            <!-- </li>
                 <li class="nav-item has-treeview menu-open active">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-users"></i>
@@ -68,7 +89,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('pendaftar/validasi-pendaftar') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-user-check"></i>
                         <p>
                             Validasi Pendaftar
                         </p>
@@ -102,15 +123,15 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('logout') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-sign-out-alt"></i>
-                        <p>
-                            Logout
-                        </p>
-                    </a>
-                </li>
+                </li> -->
+            <li class="nav-item">
+                <a href="<?= base_url('logout') ?>" class="nav-link">
+                    <i class="nav-icon fas fa-sign-out-alt"></i>
+                    <p>
+                        Logout
+                    </p>
+                </a>
+            </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
