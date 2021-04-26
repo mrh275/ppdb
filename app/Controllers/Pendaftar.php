@@ -23,8 +23,14 @@ class Pendaftar extends BaseController
 
 	public function tambahPendaftar()
 	{
+		$submenu = 'tambah-pendaftar';
+
 		$data = [
 			'title' => 'Tambah Pendaftar | PPDB SMA Negeri 1 Rawamerta',
+			'slug'			=> 'data-pendaftar',
+			'listMenu'      => $this->menuModel->getMenu(),
+			'submenuSlug'   => $submenu,
+			'submenuName'	=> $this->menuModel->getSubmenuBy($submenu),
 		];
 
 		return view('front/tambah-pendaftar', $data);
