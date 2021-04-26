@@ -10,4 +10,20 @@ class MenuModel extends Model
 	{
 		return $this->db->table('menu')->get()->getResultArray();
 	}
+
+	public function getSubmenuBy($submenu)
+	{
+		return $this->db->table('submenu')->where(['slug_submenu' => $submenu])->get()->getRowArray();
+	}
+
+	public function getSubMenu($menuId)
+	{
+		$querySubMenu = "SELECT *
+                FROM `submenu` JOIN `menu`
+                ON `submenu`.`menu_id` = `menu`.`id`
+                WHERE `submenu`.`menu_id` = $menuId
+                AND `submenu`.`active` = 1
+            ";
+		return $this->db->query($querySubMenu)->getResultArray();
+	}
 }
