@@ -9,7 +9,11 @@ class Admin extends BaseController
     {
 
         $data = [
-            'title'     => 'Dashboard | PPDB SMA Negeri 1 Rawamerta',
+            'title'         => 'Dashboard | PPDB SMA Negeri 1 Rawamerta',
+            'slug'          => 'dashboard',
+            'listMenu'      => $this->menuModel->getMenu(),
+            'submenuSlug'   => '',
+
         ];
 
         return view('front/admin', $data);
