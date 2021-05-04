@@ -24,4 +24,8 @@ class PendaftarModel extends Model
 	{
 		$this->db->table('data_ibu')->insert($ibu);
 	}
+	public function addWali($wali)
+	{
+		$this->db->table('data_wali')->insert($wali);
+	}
 }
