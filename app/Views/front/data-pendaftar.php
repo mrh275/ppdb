@@ -41,30 +41,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>PPDB-010</td>
-                                        <td>Muhamad Ramdani Hidayatullah</td>
-                                        <td>0098178362</td>
-                                        <td>3215143001970001</td>
-                                        <td>Karawang, 30 Januari 1997</td>
-                                        <td>MTsN Jatisari</td>
-                                    </tr>
-                                    <tr>
-                                        <td>PPDB-010</td>
-                                        <td>Muhamad Ramdani Hidayatullah</td>
-                                        <td>0098178362</td>
-                                        <td>3215143001970001</td>
-                                        <td>Karawang, 30 Januari 1997</td>
-                                        <td>MTsN Jatisari</td>
-                                    </tr>
-                                    <tr>
-                                        <td>PPDB-010</td>
-                                        <td>Muhamad Ramdani Hidayatullah</td>
-                                        <td>0098178362</td>
-                                        <td>3215143001970001</td>
-                                        <td>Karawang, 30 Januari 1997</td>
-                                        <td>MTsN Jatisari</td>
-                                    </tr>
+                                    <?php foreach ($pendaftar as $cpd) : ?>
+                                        <tr>
+                                            <input type="hidden" name="no_regis" value="<?= $cpd['no_daftar'] ?>">
+                                            <td><?= $cpd['no_daftar'] ?></td>
+                                            <td><?= $cpd['nama'] ?></td>
+                                            <td><?= $cpd['nisn'] ?></td>
+                                            <td><?= $cpd['nik'] ?></td>
+                                            <td><?= $cpd['tempat_lahir'] . ', ' . $cpd['tanggal_lahir'] ?></td>
+                                            <td><?= $cpd['asal_sekolah'] ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
