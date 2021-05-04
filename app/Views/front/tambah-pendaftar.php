@@ -26,7 +26,7 @@
                     <div class="progressbar">
                         <div class="step">
                             <p>Data Diri</p>
-                            <div class="bullet">
+                            <div class="bullet biodata">
                                 <span><i class="fas fa-user-edit"></i></span>
                             </div>
                             <div class="check fas fa-check">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="step">
                             <p>Data Orang Tua</p>
-                            <div class="bullet">
+                            <div class="bullet ortu">
                                 <span><i class="fas fa-user-friends"></i></span>
                             </div>
                             <div class="check fas fa-check">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="step">
                             <p>Data Periodik</p>
-                            <div class="bullet">
+                            <div class="bullet periodik">
                                 <span><i class="fas fa-address-book"></i></span>
                             </div>
                             <div class="check fas fa-check">
@@ -53,7 +53,7 @@
                         </div>
                         <div class="step">
                             <p>Lampiran</p>
-                            <div class="bullet">
+                            <div class="bullet lampiran">
                                 <span><i class="fas fa-upload"></i></span>
                             </div>
                             <div class="check fas fa-check">
@@ -73,19 +73,6 @@
             <div class="form-ppdb">
 
             </div>
-
-
-            <script>
-                $(document).ready(function() {
-
-                    //Simpan biodata
-                    $('.form-biodata').submit(function(e) {
-                        e.preventDefault();
-
-                    });
-
-                });
-            </script>
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -94,6 +81,7 @@
 <!-- /.content-wrapper -->
 
 <script>
+    //Load form biodata view
     function formBiodata() {
         $.ajax({
             url: "<?= base_url('pendaftar/formbiodata'); ?>",
@@ -107,6 +95,7 @@
         });
     };
 
+    //Load form orang tua view
     function formOrangtua() {
         $.ajax({
             url: "<?= base_url('pendaftar/formorangtua'); ?>",
@@ -125,6 +114,7 @@
         });
     }
 
+    //Load form periodik view
     function formPeriodik() {
         $.ajax({
             url: "<?= base_url('pendaftar/formperiodik'); ?>",
@@ -143,6 +133,7 @@
         });
     }
 
+    //Load form upload view
     function formUpload() {
         $.ajax({
             url: "<?= base_url('pendaftar/formupload'); ?>",
@@ -161,6 +152,7 @@
         });
     }
 
+    //Load preview cetak pendaftar
     function previewCetak() {
         $.ajax({
             url: "<?= base_url('pendaftar/previewcetak'); ?>",
@@ -179,9 +171,8 @@
         });
     }
 
+    //Step bar animation
     function progressBarNext(page) {
-        // const next = $('.btn-simpan');
-        // const prev = $('.previous');
         const progressText = document.querySelectorAll(".step p");
         const progressCheck = document.querySelectorAll(".step .check");
         const bullet = document.querySelectorAll(".step .bullet");
@@ -194,12 +185,7 @@
         current += 1;
 
 
-        // prev.click(function() {
-        //     bullet[current - 2].classList.remove('active');
-        //     progressCheck[current - 2].classList.remove('active')
-        //     progressText[current - 2].classList.remove('active')
-        //     current -= 1;
-        // });
+
     }
 
     $(document).ready(function() {
