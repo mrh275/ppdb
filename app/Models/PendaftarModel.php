@@ -16,4 +16,8 @@ class PendaftarModel extends Model
 	{
 		$this->db->table('biodata_pendaftar')->insert($data);
 	}
+	public function addAyah($ayah)
+	{
+		$this->db->table('data_ayah')->insert($ayah);
+	}
 }
