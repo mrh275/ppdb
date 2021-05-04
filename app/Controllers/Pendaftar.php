@@ -290,4 +290,166 @@ class Pendaftar extends BaseController
 			}
 		}
 	}
+
+	public function addOrangTua()
+	{
+
+		if ($this->request->isAJAX()) {
+			$validation = \Config\Services::validation();
+
+			if (!$this->validate([
+				'nama_ayah'    => [
+					'rules' => 'required[nama_ayah]',
+					'errors'    => [
+						'required'  => 'Nama Lengkap Ayah wajib diisi!'
+					]
+				],
+				'nik_ayah'    => [
+					'rules' => 'required[nik_ayah]|numeric|min_length[16]|max_length[16]',
+					'errors'    => [
+						'required'  => 'Nomor Induk Kependudukan (NIK) wajib diisi!',
+						'numeric'   => 'Hanya boleh memasukan angka.',
+						'min_length' => 'Jumlah angka boleh yang dimasukan hanya 16 karakter.',
+						'max_length' => 'Jumlah angka boleh yang dimasukan hanya 16 karakter.'
+					]
+				],
+				'tahun_lahir_ayah'    => [
+					'rules' => 'required[tahunLahir_ayah]|min_length[4]|max_length[5]',
+					'errors'    => [
+						'required'  	=> 'Tahun lahir wajib diisi!',
+						'min_length'	=> 'Masukan tahun lahir yang valid.'
+					]
+				],
+				'pendidikan_ayah'    => [
+					'rules' => 'required[pendidikan_ayah]|min_length[1]',
+					'errors'    => [
+						'required'  	=> 'Pendidikan Ayah wajib diisi!',
+						'min_length'	=> 'Silahkan pilih dahulu Pendidikan Ayah.'
+					]
+				],
+				'pekerjaan_ayah'    => [
+					'rules' => 'required[pekerjaan_ayah]|min_length[1]',
+					'errors'    => [
+						'required'  	=> 'Pekerjaan Ayah wajib diisi!',
+						'min_length'	=> 'Silahkan pilih dahulu Pekerjaan Ayah.'
+					]
+				],
+				'penghasilan_ayah'    => [
+					'rules' => 'required[penghasilan_ayah]|min_length[1]',
+					'errors'    => [
+						'required'  => 'Penghasilan Ayah wajib diisi!',
+						'min_length' => 'Silahkan pilih terlebih dahulu Penghasilan Bulanan Ayah.'
+					]
+				],
+				'nama_ibu'    => [
+					'rules' => 'required[nama_ibu]',
+					'errors'    => [
+						'required'  => 'Nama Lengkap Ibu wajib diisi!'
+					]
+				],
+				'nik_ibu'    => [
+					'rules' => 'required[nik_ibu]|numeric|min_length[16]|max_length[16]',
+					'errors'    => [
+						'required'  => 'Nomor Induk Kependudukan (NIK) wajib diisi!',
+						'numeric'   => 'Hanya boleh memasukan angka.',
+						'min_length' => 'Jumlah angka boleh yang dimasukan hanya 16 karakter.',
+						'max_length' => 'Jumlah angka boleh yang dimasukan hanya 16 karakter.'
+					]
+				],
+				'tahun_lahir_ibu'    => [
+					'rules' => 'required[tahunLahir_ibu]|min_length[4]|max_length[5]',
+					'errors'    => [
+						'required'  	=> 'Tahun lahir wajib diisi!',
+						'min_length'	=> 'Masukan tahun lahir yang valid.'
+					]
+				],
+				'pendidikan_ibu'    => [
+					'rules' => 'required[pendidikan_ibu]|min_length[1]',
+					'errors'    => [
+						'required'  	=> 'Pendidikan Ibu wajib diisi!',
+						'min_length'	=> 'Silahkan pilih dahulu Pendidikan Ibu.'
+					]
+				],
+				'pekerjaan_ibu'    => [
+					'rules' => 'required[pekerjaan_ibu]|min_length[1]',
+					'errors'    => [
+						'required'  	=> 'Pekerjaan Ibu wajib diisi!',
+						'min_length'	=> 'Silahkan pilih dahulu Pekerjaan Ibu.'
+					]
+				],
+				'penghasilan_ibu'    => [
+					'rules' => 'required[penghasilan_ibu]|min_length[1]',
+					'errors'    => [
+						'required'  => 'Penghasilan Ibu wajib diisi!',
+						'min_length' => 'Silahkan pilih terlebih dahulu Penghasilan Bulanan Ibu.'
+					]
+				],
+			])) {
+				$msg = [
+					'error' => [
+						'namaAyah'          => $validation->getError('nama_ayah'),
+						'nikAyah'           => $validation->getError('nik_ayah'),
+						'tahunLahirAyah'    => $validation->getError('tahun_lahir_ayah'),
+						'pendidikanAyah'    => $validation->getError('pendidikan_ayah'),
+						'pekerjaanAyah'     => $validation->getError('pekerjaan_ayah'),
+						'penghasilanAyah'   => $validation->getError('penghasilan_ayah'),
+						'namaIbu'           => $validation->getError('nama_ibu'),
+						'nikIbu'            => $validation->getError('nik_ibu'),
+						'tahunLahirIbu'     => $validation->getError('tahun_lahir_ibu'),
+						'pendidikanIbu'     => $validation->getError('pendidikan_ibu'),
+						'pekerjaanIbu'      => $validation->getError('pekerjaan_ibu'),
+						'penghasilanIbu'    => $validation->getError('penghasilan_ibu'),
+					],
+				];
+
+				echo json_encode($msg);
+			} else {
+				$ayah = [
+					// 'no_regis'				 => $this->request->getVar('no_regis'),
+					'nama_ayah'              => $this->request->getVar('nama_ayah'),
+					'nik_ayah'               => $this->request->getVar('nik_ayah'),
+					'tahun_lahir_ayah'       => $this->request->getVar('tahun_lahir_ayah'),
+					'pendidikan_ayah'        => $this->request->getVar('pendidikan_ayah'),
+					'pekerjaan_ayah'         => $this->request->getVar('pekerjaan_ayah'),
+					'penghasilan_ayah'       => $this->request->getVar('penghasilan_ayah'),
+					'created_at'       		 => date('Y-m-d H:i:s')
+				];
+
+				$ibu = [
+					'no_regis'				=> $this->request->getVar('no_regis'),
+					'nama_ibu'              => $this->request->getVar('nama_ibu'),
+					'nik_ibu'               => $this->request->getVar('nik_ibu'),
+					'tahun_lahir_ibu'       => $this->request->getVar('tahun_lahir_ibu'),
+					'pendidikan_ibu'        => $this->request->getVar('pendidikan_ibu'),
+					'pekerjaan_ibu'         => $this->request->getVar('pekerjaan_ibu'),
+					'penghasilan_ibu'       => $this->request->getVar('penghasilan_ibu'),
+					'created_at'       		=> date('Y-m-d H:i:s')
+				];
+
+				$this->pendaftarModel->addAyah($ayah);
+				$this->pendaftarModel->addIbu($ibu);
+
+				if ($this->request->getVar('haveWali') == 1) {
+					$wali = [
+						'no_regis'				 => $this->request->getVar('no_regis'),
+						'nama_wali'              => $this->request->getVar('nama_wali'),
+						'nik_wali'               => $this->request->getVar('nik_wali'),
+						'tahun_lahir_wali'       => $this->request->getVar('tahun_lahir_wali'),
+						'pendidikan_wali'        => $this->request->getVar('pendidikan_wali'),
+						'pekerjaan_wali'         => $this->request->getVar('pekerjaan_wali'),
+						'penghasilan_wali'       => $this->request->getVar('penghasilan_wali'),
+						'created_at'       		 => date('Y-m-d H:i:s')
+					];
+
+					$this->pendaftarModel->addWali($wali);
+				}
+
+				$msg = [
+					'sukses' => 'Data berhasil ditambahkan',
+				];
+
+				echo json_encode($msg);
+			}
+		}
+	}
 }
