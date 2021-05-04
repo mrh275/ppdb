@@ -11,4 +11,9 @@ class PendaftarModel extends Model
 	{
 		return $this->db->table('biodata_pendaftar')->get()->getResultArray();
 	}
+
+	public function addBiodata($data)
+	{
+		$this->db->table('biodata_pendaftar')->insert($data);
+	}
 }
