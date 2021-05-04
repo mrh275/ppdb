@@ -88,6 +88,13 @@ body {
           }
         }
 
+        .bullet.biodata,
+        .bullet.ortu,
+        .bullet.periodik,
+        .bullet.lampiran {
+          cursor: pointer;
+        }
+
         .bullet:before,
         .bullet:after {
           position: absolute;
@@ -261,5 +268,36 @@ body {
 @keyframes animate {
   100% {
     transform: scaleX(1);
+  }
+}
+
+@media (min-width: 1520px) {
+  body {
+    div.content-wrapper {
+      .progressbar {
+        .step {
+          .bullet:before,
+          .bullet:after {
+            right: -263px;
+            width: 261px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1920px) {
+  body {
+    div.content-wrapper {
+      .progressbar {
+        .step {
+          .bullet:before,
+          .bullet:after {
+            right: -363px;
+            width: 361px;
+          }
+        }
+      }
+    }
   }
 }

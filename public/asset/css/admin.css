@@ -66,6 +66,13 @@ body div.content-wrapper .progressbar .step .bullet.active span {
   display: none;
 }
 
+body div.content-wrapper .progressbar .step .bullet.biodata,
+body div.content-wrapper .progressbar .step .bullet.ortu,
+body div.content-wrapper .progressbar .step .bullet.periodik,
+body div.content-wrapper .progressbar .step .bullet.lampiran {
+  cursor: pointer;
+}
+
 body div.content-wrapper .progressbar .step .bullet:before,
 body div.content-wrapper .progressbar .step .bullet:after {
   position: absolute;
@@ -218,6 +225,22 @@ body .previewCetak .table tr.head-bukti p:nth-child(6) {
   100% {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
+  }
+}
+
+@media (min-width: 1520px) {
+  body div.content-wrapper .progressbar .step .bullet:before,
+  body div.content-wrapper .progressbar .step .bullet:after {
+    right: -263px;
+    width: 261px;
+  }
+}
+
+@media (min-width: 1920px) {
+  body div.content-wrapper .progressbar .step .bullet:before,
+  body div.content-wrapper .progressbar .step .bullet:after {
+    right: -363px;
+    width: 361px;
   }
 }
 /*# sourceMappingURL=admin.css.map */
