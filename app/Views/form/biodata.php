@@ -1,4 +1,4 @@
-<?= form_open('biodata/add', ['class' => 'form-group form-biodata']) ?>
+<?= form_open('pendaftar/addBiodata', ['class' => 'form-group form-biodata']) ?>
 <?= csrf_field(); ?>
 <div class="modal-body">
     <div class="row mt-4">
@@ -50,6 +50,17 @@
         <div class="col-lg-9">
             <input type="text" class="form-control" name="nisn" id="nisn">
             <div class="invalid-feedback errorNISN">
+
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-3 d-flex align-items-center">
+            <label for="asal_sekolah">Asal Sekolah (SMP/MTs/Paket B)</label>
+        </div>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" name="asal_sekolah" id="asal_sekolah">
+            <div class="invalid-feedback errorAsalSekolah">
 
             </div>
         </div>
@@ -214,6 +225,17 @@
     </div>
     <div class="row mt-3">
         <div class="col-lg-3 d-flex align-items-center">
+            <label for="kota">Kabupaten/Kota</label>
+        </div>
+        <div class="col-lg-9">
+            <input type="text" name="kota" class="form-control" id="kota">
+            <div class="invalid-feedback errorKota">
+
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-3 d-flex align-items-center">
             <label for="tinggal">Tempat Tinggal</label>
         </div>
         <div class="col-lg-9">
@@ -250,38 +272,182 @@
     </div>
 </div>
 <div class="modal-footer justify-content-end">
-    <button type="button" class="btn btn-primary btn-simpan">Simpan</button>
+    <button type="submit" class="btn btn-primary btn-simpan">Simpan</button>
 </div>
+<?= form_close(); ?>
 
 <script>
     $(document).ready(function() {
-        $('.btn-simpan').click(function() {
-            Swal.fire({
-                title: 'Sedang menyimpan data',
-                timer: 1000,
-                allowEscapeKey: false,
-                allowOutsideClick: false,
-                onOpen: function() {
-                    Swal.showLoading()
-                }
-            }).then(
-                (dismiss) => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Yeay!',
-                        text: 'Data berhasil disimpan',
-                        timer: 1000,
-                        showConfirmButton: false
-                    }).then(
-                        (dismiss) => {
-                            progressBarNext(1);
-                            formOrangtua();
+        $('.form-biodata').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.error) {
+
+                        if (response.error.nama) {
+                            $('input#nama').addClass('is-invalid');
+                            $('.errorNama').html(response.error.nama);
+                        } else {
+                            $('input#nama').removeClass('is-invalid');
+                            $('.errorNama').html('');
                         }
-                    )
+
+                        if (response.error.nisn) {
+                            $('input#nisn').addClass('is-invalid');
+                            $('.errorNISN').html(response.error.nisn);
+                        } else {
+                            $('input#nisn').removeClass('is-invalid');
+                            $('.errorNISN').html('');
+                        }
+
+                        if (response.error.nik) {
+                            $('input#nik').addClass('is-invalid');
+                            $('.errorNIK').html(response.error.nik);
+                        } else {
+                            $('input#nik').removeClass('is-invalid');
+                            $('.errorNIK').html('');
+                        }
+
+                        if (response.error.noKK) {
+                            $('input#kk').addClass('is-invalid');
+                            $('.errorKK').html(response.error.noKK);
+                        } else {
+                            $('input#kk').removeClass('is-invalid');
+                            $('.errorKK').html('');
+                        }
+
+                        if (response.error.anakKeBerapa) {
+                            $('input#anak_ke_berapa').addClass('is-invalid');
+                            $('.errorAnakKeBerapa').html(response.error.anakKeBerapa);
+                        } else {
+                            $('input#anak_ke_berapa').removeClass('is-invalid');
+                            $('.errorAnakKeBerapa').html('');
+                        }
+
+                        if (response.error.tempatlahir) {
+                            $('input#tempatlahir').addClass('is-invalid');
+                            $('.errorTempatLahir').html(response.error.tempatlahir);
+                        } else {
+                            $('input#tempatlahir').removeClass('is-invalid');
+                            $('.errorTempatLahir').html('');
+                        }
+
+                        if (response.error.tgl_lahir) {
+                            $('input#tgl_lahir').addClass('is-invalid');
+                            $('.errortgl_lahir').html(response.error.tgl_lahir);
+                        } else {
+                            $('input#tgl_lahir').removeClass('is-invalid');
+                            $('.errortgl_lahir').html('');
+                        }
+
+                        if (response.error.akte) {
+                            $('input#akte').addClass('is-invalid');
+                            $('.errorAkte').html(response.error.akte);
+                        } else {
+                            $('input#akte').removeClass('is-invalid');
+                            $('.errorAkte').html('');
+                        }
+
+                        if (response.error.alamat) {
+                            $('input#alamat').addClass('is-invalid');
+                            $('.errorAlamat').html(response.error.alamat);
+                        } else {
+                            $('input#alamat').removeClass('is-invalid');
+                            $('.errorAlamat').html('');
+                        }
+
+                        if (response.error.dusun) {
+                            $('input#dusun').addClass('is-invalid');
+                            $('.errorDusun').html(response.error.dusun);
+                        } else {
+                            $('input#dusun').removeClass('is-invalid');
+                            $('.errorDusun').html('');
+                        }
+
+                        if (response.error.rt) {
+                            $('input#rt').addClass('is-invalid');
+                            $('.errorRT').html(response.error.rt);
+                        } else {
+                            $('input#rt').removeClass('is-invalid');
+                            $('.errorRT').html('');
+                        }
+
+                        if (response.error.rw) {
+                            $('input#rw').addClass('is-invalid');
+                            $('.errorRW').html(response.error.rw);
+                        } else {
+                            $('input#rw').removeClass('is-invalid');
+                            $('.errorRW').html('');
+                        }
+
+                        if (response.error.desa) {
+                            $('input#desa').addClass('is-invalid');
+                            $('.errorDesa').html(response.error.desa);
+                        } else {
+                            $('input#desa').removeClass('is-invalid');
+                            $('.errorDesa').html('');
+                        }
+
+                        if (response.error.kecamatan) {
+                            $('input#kecamatan').addClass('is-invalid');
+                            $('.errorKecamatan').html(response.error.kecamatan);
+                        } else {
+                            $('input#kecamatan').removeClass('is-invalid');
+                            $('.errorKecamatan').html('');
+                        }
+
+                        if (response.error.kota) {
+                            $('input#kota').addClass('is-invalid');
+                            $('.errorKota').html(response.error.kota);
+                        } else {
+                            $('input#kota').removeClass('is-invalid');
+                            $('.errorKota').html('');
+                        }
+
+                        if (response.error.pos) {
+                            $('input#pos').addClass('is-invalid');
+                            $('.errorPOS').html(response.error.pos);
+                        } else {
+                            $('input#pos').removeClass('is-invalid');
+                            $('.errorPOS').html();
+                        }
+                    } else {
+                        Swal.fire({
+                            title: 'Sedang menyimpan data',
+                            timer: 1000,
+                            allowEscapeKey: false,
+                            allowOutsideClick: false,
+                            onOpen: function() {
+                                Swal.showLoading()
+                            }
+                        }).then(
+                            (dismiss) => {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Yeay!',
+                                    text: 'Data berhasil disimpan',
+                                    timer: 1000,
+                                    showConfirmButton: false
+                                }).then(
+                                    (dismiss) => {
+                                        progressBarNext(1);
+                                        formOrangtua();
+                                    }
+                                )
+                            }
+                        );
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
                 }
-            );
+            });
+
 
         });
     });
 </script>
-<?= form_close(); ?>
