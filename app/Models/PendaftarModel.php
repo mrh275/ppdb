@@ -20,4 +20,8 @@ class PendaftarModel extends Model
 	{
 		$this->db->table('data_ayah')->insert($ayah);
 	}
+	public function addIbu($ibu)
+	{
+		$this->db->table('data_ibu')->insert($ibu);
+	}
 }
