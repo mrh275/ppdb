@@ -28,4 +28,8 @@ class PendaftarModel extends Model
 	{
 		$this->db->table('data_wali')->insert($wali);
 	}
+	public function addPeriodik($periodik)
+	{
+		$this->db->table('data_periodik')->insert($periodik);
+	}
 }
