@@ -55,8 +55,11 @@ class Pendaftar extends BaseController
 	{
 
 		if ($this->request->isAJAX()) {
+			$data = [
+				'noRegis' => session()->no_daftar
+			];
 			$msg = [
-				'data' => view('form/orang-tua'),
+				'data' => view('form/orang-tua', $data),
 			];
 
 			echo json_encode($msg);
@@ -309,12 +312,12 @@ class Pendaftar extends BaseController
 					'errors'    => [
 						'required'  => 'Nomor Induk Kependudukan (NIK) wajib diisi!',
 						'numeric'   => 'Hanya boleh memasukan angka.',
-						'min_length' => 'Jumlah angka boleh yang dimasukan hanya 16 karakter.',
-						'max_length' => 'Jumlah angka boleh yang dimasukan hanya 16 karakter.'
+						'min_length' => 'Jumlah angka boleh yang dimasukan hanya 16 digit angka.',
+						'max_length' => 'Jumlah angka boleh yang dimasukan hanya 16 digit angka.'
 					]
 				],
 				'tahun_lahir_ayah'    => [
-					'rules' => 'required[tahunLahir_ayah]|min_length[4]|max_length[5]',
+					'rules' => 'required[tahun_lahir_ayah]|min_length[4]|max_length[5]',
 					'errors'    => [
 						'required'  	=> 'Tahun lahir wajib diisi!',
 						'min_length'	=> 'Masukan tahun lahir yang valid.'
@@ -352,12 +355,12 @@ class Pendaftar extends BaseController
 					'errors'    => [
 						'required'  => 'Nomor Induk Kependudukan (NIK) wajib diisi!',
 						'numeric'   => 'Hanya boleh memasukan angka.',
-						'min_length' => 'Jumlah angka boleh yang dimasukan hanya 16 karakter.',
-						'max_length' => 'Jumlah angka boleh yang dimasukan hanya 16 karakter.'
+						'min_length' => 'Jumlah angka boleh yang dimasukan hanya 16 digit angka.',
+						'max_length' => 'Jumlah angka boleh yang dimasukan hanya 16 digit angka.'
 					]
 				],
 				'tahun_lahir_ibu'    => [
-					'rules' => 'required[tahunLahir_ibu]|min_length[4]|max_length[5]',
+					'rules' => 'required[tahun_lahir_ibu]|min_length[4]|max_length[5]',
 					'errors'    => [
 						'required'  	=> 'Tahun lahir wajib diisi!',
 						'min_length'	=> 'Masukan tahun lahir yang valid.'
@@ -405,7 +408,7 @@ class Pendaftar extends BaseController
 				echo json_encode($msg);
 			} else {
 				$ayah = [
-					// 'no_regis'				 => $this->request->getVar('no_regis'),
+					'no_regis'				 => $this->request->getVar('no_regis'),
 					'nama_ayah'              => $this->request->getVar('nama_ayah'),
 					'nik_ayah'               => $this->request->getVar('nik_ayah'),
 					'tahun_lahir_ayah'       => $this->request->getVar('tahun_lahir_ayah'),
@@ -443,6 +446,101 @@ class Pendaftar extends BaseController
 
 					$this->pendaftarModel->addWali($wali);
 				}
+
+				$msg = [
+					'sukses' => 'Data berhasil ditambahkan',
+				];
+
+				echo json_encode($msg);
+			}
+		}
+	}
+
+	public function addPeriodik()
+	{
+
+		if ($this->request->isAJAX()) {
+			$validation = \Config\Services::validation();
+
+			if (!$this->validate([
+				'asal_sekolah'  => [
+					'rules' 	=> 'required[asal_sekolah]',
+					'errors'    => [
+						'required'  => 'Asal Sekolah (SMP/MTs) wajib diisi!'
+					]
+				],
+				'tinggi_badan'  => [
+					'rules' 	=> 'required[tinggi_badan]|numeric|max_length[3]',
+					'errors'    => [
+						'required'   => 'Tinggi Badan wajib diisi!',
+						'numeric'    => 'Hanya boleh memasukan angka.',
+						'max_length' => 'Jumlah angka yang boleh dimasukan hanya 3 digit angka.'
+					]
+				],
+				'berat_badan'   => [
+					'rules' 	=> 'required[berat_badan]|numeric|max_length[3]',
+					'errors'    => [
+						'required'   => 'Berat Badan wajib diisi!',
+						'numeric'    => 'Hanya boleh memasukan angka.',
+						'max_length' => 'Jumlah angka yang boleh dimasukan hanya 3 digit angka.'
+					]
+				],
+				'hobi'    		=> [
+					'rules' 	=> 'required[hobi]',
+					'errors'    => [
+						'required'  	=> 'Hobi wajib diisi!',
+					]
+				],
+				'cita_cita'     => [
+					'rules' 	=> 'required[cita_cita]',
+					'errors'    => [
+						'required'  	=> 'Cita - cita wajib diisi!',
+					]
+				],
+				'jarak_rumah'   => [
+					'rules' 	=> 'required[jarak_rumah]|numeric|max_length[10]',
+					'errors'    => [
+						'required'   => 'Jarak Rumah wajib diisi!',
+						'numeric'    => 'Hanya boleh memasukan angka.',
+						'max_length' => 'Jumlah angka yang boleh dimasukan hanya 10 digit angka.'
+					]
+				],
+				'waktu_tempuh'  => [
+					'rules' 	=> 'required[waktu_tempuh]|numeric|max_length[5]',
+					'errors'    => [
+						'required'   => 'Waktu Tempuh wajib diisi!',
+						'numeric'    => 'Hanya boleh memasukan angka.',
+						'max_length' => 'Jumlah angka yang boleh dimasukan hanya 5 digit angka.'
+					]
+				],
+			])) {
+				$msg = [
+					'error' => [
+						'asalSekolah'	=> $validation->getError('asal_sekolah'),
+						'tinggiBadan'   => $validation->getError('tinggi_badan'),
+						'beratBadan'    => $validation->getError('berat_badan'),
+						'hobi'    		=> $validation->getError('hobi'),
+						'citaCita'      => $validation->getError('cita_cita'),
+						'jarakRumah'   	=> $validation->getError('jarak_rumah'),
+						'waktuTempuh'   => $validation->getError('waktu_tempuh'),
+					],
+				];
+
+				echo json_encode($msg);
+			} else {
+				$periodik = [
+					// 'no_regis'	=> $this->request->getVar('no_regis'),
+					'asal_sekolah'  => $this->request->getVar('asal_sekolah'),
+					'tinggi_badan'  => $this->request->getVar('tinggi_badan'),
+					'berat_badan'   => $this->request->getVar('berat_badan'),
+					'hobi'        	=> $this->request->getVar('hobi'),
+					'cita_cita'     => $this->request->getVar('cita_cita'),
+					'jarak_rumah'   => $this->request->getVar('jarak_rumah'),
+					'waktu_tempuh'  => $this->request->getVar('waktu_tempuh'),
+					'created_at'    => date('Y-m-d H:i:s')
+				];
+
+				$this->pendaftarModel->addPeriodik($periodik);
 
 				$msg = [
 					'sukses' => 'Data berhasil ditambahkan',
