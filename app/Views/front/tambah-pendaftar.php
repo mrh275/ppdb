@@ -192,7 +192,22 @@
 
         formBiodata();
 
-
+        $('.bullet.biodata').click(function() {
+            $('form-ppdb').html('');
+            formBiodata();
+        });
+        $('.bullet.ortu').click(function() {
+            $('form-ppdb').html('');
+            formOrangtua();
+        });
+        $('.bullet.periodik').click(function() {
+            $('form-ppdb').html('');
+            formPeriodik();
+        });
+        $('.bullet.lampiran').click(function() {
+            $('form-ppdb').html('');
+            formUpload();
+        });
     });
 </script>
 
