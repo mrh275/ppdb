@@ -5,6 +5,7 @@
         <h4 class="data-ayah">DATA AYAH KANDUNG</h4>
     </dic>
 </div>
+<input type="hidden" name="no_regis" value="<?= $noRegis ?>">
 <div class="row mt-3">
     <div class="col-lg-3 d-flex align-items-center">
         <label for="nama_ayah">Nama Lengkap Ayah</label>
@@ -391,7 +392,7 @@
                                     showConfirmButton: false
                                 }).then(
                                     (dismiss) => {
-                                        progressBarNext(1);
+                                        progressBarNext(2);
                                         formPeriodik();
                                     }
                                 )
