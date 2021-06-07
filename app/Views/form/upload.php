@@ -1,4 +1,4 @@
-<form action="<?= base_url('/dataupload/add') ?>" class="form-group form-upload" method="post" enctype="multipart/form-data">
+<form action="<?= base_url('pendaftar/upload') ?>" class="form-group form-upload" method="post" enctype="multipart/form-data">
     <?= csrf_field(); ?>
 
     <!-- BERKAS AKADEMIS -->
@@ -9,13 +9,13 @@
     </div>
     <div class="row mt-3">
         <div class="col-lg-3 d-flex align-items-top">
-            <label for="file_ijazah">Upload Scan Ijazah SMP/MTs</label>
+            <label for="fileIjazah">Upload Scan Ijazah SMP/MTs</label>
         </div>
         <div class="col-lg-6 custom-file">
-            <input type="file" class="custom-file-input" name="file_ijazah" id="ijazah" onchange="previewIjazah()">
-            <div class="invalid-feedback">
+            <input type="file" class="custom-file-input" name="fileIjazah" id="fileIjazah" onchange="previewIjazah()">
+            <div class="invalid-feedback errorUploadIjazah">
             </div>
-            <label class="custom-file-label label-ijazah" for="ijazah">Choose file</label>
+            <label class="custom-file-label label-ijazah" for="fileIjazah">Choose file</label>
         </div>
         <div class="col-lg-2">
             <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-ijazah">
@@ -24,13 +24,13 @@
     <hr>
     <div class="row mt-3">
         <div class="col-lg-3 d-flex align-items-top">
-            <label for="file_skhun">Upload Scan SKHUN SMP/MTs</label>
+            <label for="fileSKHUN">Upload Scan SKHUN SMP/MTs</label>
         </div>
         <div class="col-lg-6 custom-file">
-            <input type="file" class="custom-file-input" name="file_skhun" id="skhun" onchange="previewSkhun()">
-            <div class="invalid-feedback">
+            <input type="file" class="custom-file-input" name="fileSKHUN" id="fileSKHUN" onchange="previewSkhun()">
+            <div class="invalid-feedback errorUploadSKHUN">
             </div>
-            <label class="custom-file-label label-skhun" for="skhun">Choose file</label>
+            <label class="custom-file-label label-skhun" for="fileSKHUN">Choose file</label>
         </div>
         <div class="col-lg-2">
             <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-skhun">
@@ -39,13 +39,13 @@
     <hr>
     <div class="row mt-3">
         <div class="col-lg-3 d-flex align-items-top">
-            <label for="file_kk">Upload Scan Kartu Keluarga (KK)</label>
+            <label for="fileKK">Upload Scan Kartu Keluarga (KK)</label>
         </div>
         <div class="col-lg-6 custom-file">
-            <input type="file" class="custom-file-input" name="file_kk" id="kk" onchange="previewKk()">
-            <div class="invalid-feedback">
+            <input type="file" class="custom-file-input" name="fileKK" id="fileKK" onchange="previewKk()">
+            <div class="invalid-feedback errorUploadKK">
             </div>
-            <label class="custom-file-label label-kk" for="kk">Choose file</label>
+            <label class="custom-file-label label-kk" for="fileKK">Choose file</label>
         </div>
         <div class="col-lg-2">
             <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-kk">
@@ -54,11 +54,13 @@
     <hr>
     <div class="row mt-3">
         <div class="col-lg-3 d-flex align-items-top">
-            <label for="file_akte">Upload Scan Akta Kelahiran</label>
+            <label for="fileAkte">Upload Scan Akta Kelahiran</label>
         </div>
         <div class="col-lg-6 custom-file">
-            <input type="file" class="custom-file-input" name="file_akte" id="akte" onchange="previewAkte()">
-            <label class="custom-file-label label-akte" for="akte">Choose file</label>
+            <input type="file" class="custom-file-input" name="fileAkte" id="fileAkte" onchange="previewAkte()">
+            <div class="invalid-feedback errorUploadAkte">
+            </div>
+            <label class="custom-file-label label-akte" for="fileAkte">Choose file</label>
         </div>
         <div class="col-lg-2">
             <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-akte">
@@ -76,18 +78,20 @@
             <label for="kip">Nomor Kartu Indonesia Pintar (KIP)</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="kip" class="form-control">
+            <input type="text" name="kip" id="kip" class="form-control">
+            <div class="invalid-feedback errorKIP">
+            </div>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-lg-3 d-flex align-items-top">
-            <label for="file_kip">Upload Scan Kartu Indonesia Pintar (KIP)</label>
+            <label for="fileKIP">Upload Scan Kartu Indonesia Pintar (KIP)</label>
         </div>
         <div class="col-lg-6 ml-3 custom-file">
-            <input type="file" class="custom-file-input" name="file_kip" id="kip" onchange="previewKip()">
-            <div class="invalid-feedback">
+            <input type="file" class="custom-file-input" name="fileKIP" id="fileKIP" onchange="previewKip()">
+            <div class="invalid-feedback errorUploadKIP">
             </div>
-            <label class="custom-file-label label-kip" for="kip">Choose file</label>
+            <label class="custom-file-label label-kip" for="fileKIP">Choose file</label>
         </div>
         <div class="col-lg-2">
             <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-kip">
@@ -98,18 +102,20 @@
             <label for="kis">Nomor Kartu Indonesia Sehat (KIS)</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="kis" class="form-control">
+            <input type="text" name="kis" id="kis" class="form-control">
+            <div class="invalid-feedback errorKIS">
+            </div>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-lg-3 d-flex align-items-top">
-            <label for="file_kis">Upload Scan Kartu Indonesia Sehat (KIS)</label>
+            <label for="fileKIS">Upload Scan Kartu Indonesia Sehat (KIS)</label>
         </div>
         <div class="col-lg-6 ml-3 custom-file">
-            <input type="file" class="custom-file-input" name="file_kis" id="kis" onchange="previewKis()">
-            <div class="invalid-feedback">
+            <input type="file" class="custom-file-input" name="fileKIS" id="fileKIS" onchange="previewKis()">
+            <div class="invalid-feedback errorUploadKIS">
             </div>
-            <label class="custom-file-label label-kis" for="kis">Choose file</label>
+            <label class="custom-file-label label-kis" for="fileKIS">Choose file</label>
         </div>
         <div class="col-lg-2">
             <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-kis">
@@ -120,18 +126,20 @@
             <label for="pkh">Nomor Kartu PKH/KKS/KPS/SKTM</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="pkh" class="form-control">
+            <input type="text" name="pkh" id="pkh" class="form-control">
+            <div class="invalid-feedback errorPKH">
+            </div>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-lg-3 d-flex align-items-top">
-            <label for="file_pkh">Upload Scan Kartu PKH/KKS/KPS/SKTM</label>
+            <label for="filePKH">Upload Scan Kartu PKH/KKS/KPS/SKTM</label>
         </div>
         <div class="col-lg-6 ml-3 custom-file">
-            <input type="file" class="custom-file-input" name="file_pkh" id="pkh" onchange="previewPkh()">
-            <div class="invalid-feedback">
+            <input type="file" class="custom-file-input" name="filePKH" id="filePKH" onchange="previewPkh()">
+            <div class="invalid-feedback errorUploadPKH">
             </div>
-            <label class="custom-file-label label-pkh" for="pkh">Choose file</label>
+            <label class="custom-file-label label-pkh" for="filePKH">Choose file</label>
         </div>
         <div class="col-lg-2">
             <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-pkh">
@@ -141,7 +149,7 @@
 
     <div class="row mt-3">
         <div class="col-lg-11 d-flex justify-content-end">
-            <button class="btn btn-primary btn-simpan" type="button" name="submit">Submit</button>
+            <button class="btn btn-primary btn-simpan" type="submit" name="submit">Submit</button>
         </div>
     </div>
 
@@ -153,7 +161,7 @@
 
     //Ijazah preview
     function previewIjazah() {
-        const ijazah = document.querySelector('#ijazah');
+        const ijazah = document.querySelector('#fileIjazah');
         const ijazahLabel = document.querySelector('.label-ijazah');
         const imgIjazah = document.querySelector('.img-ijazah');
 
@@ -167,7 +175,7 @@
 
     //SKHUN Preview
     function previewSkhun() {
-        const skhun = document.querySelector('#skhun');
+        const skhun = document.querySelector('#fileSKHUN');
         const skhunLabel = document.querySelector('.label-skhun');
         const imgskhun = document.querySelector('.img-skhun');
 
@@ -181,7 +189,7 @@
 
     //KK Preview
     function previewKk() {
-        const kk = document.querySelector('#kk');
+        const kk = document.querySelector('#fileKK');
         const kkLabel = document.querySelector('.label-kk');
         const imgkk = document.querySelector('.img-kk');
 
@@ -195,7 +203,7 @@
 
     //Akte Preview
     function previewAkte() {
-        const akte = document.querySelector('#akte');
+        const akte = document.querySelector('#fileAkte');
         const akteLabel = document.querySelector('.label-akte');
         const imgakte = document.querySelector('.img-akte');
 
@@ -209,7 +217,7 @@
 
     //KIP Preview
     function previewKip() {
-        const kip = document.querySelector('#kip');
+        const kip = document.querySelector('#fileKIP');
         const kipLabel = document.querySelector('.label-kip');
         const imgkip = document.querySelector('.img-kip');
 
@@ -223,7 +231,7 @@
 
     //KIS Preview
     function previewKis() {
-        const kis = document.querySelector('#kis');
+        const kis = document.querySelector('#fileKIS');
         const kisLabel = document.querySelector('.label-kis');
         const imgkis = document.querySelector('.img-kis');
 
@@ -237,7 +245,7 @@
 
     //PKH Preview
     function previewPkh() {
-        const pkh = document.querySelector('#pkh');
+        const pkh = document.querySelector('#filePKH');
         const pkhLabel = document.querySelector('.label-pkh');
         const imgpkh = document.querySelector('.img-pkh');
 
@@ -250,31 +258,128 @@
     }
 
     $(document).ready(function() {
-        $('.btn-simpan').click(function() {
-            Swal.fire({
-                title: 'Sedang menyimpan data',
-                timer: 1000,
-                allowEscapeKey: false,
-                allowOutsideClick: false,
-                onOpen: function() {
-                    Swal.showLoading()
-                }
-            }).then(
-                (dismiss) => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Yeay!',
-                        text: 'Data berhasil disimpan',
-                        timer: 1000,
-                        showConfirmButton: false
-                    }).then(
-                        (dismiss) => {
-                            progressBarNext(4);
-                            previewCetak();
+        $('.form-upload').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+
+                        if (response.error.fileIjazah) {
+                            $('input#fileIjazah').addClass('is-invalid');
+                            $('.errorUploadIjazah').html(response.error.fileIjazah);
+                        } else {
+                            $('input#fileIjazah').removeClass('is-invalid');
+                            $('.errorUploadIjazah').html('');
                         }
-                    )
+
+                        if (response.error.fileSKHUN) {
+                            $('input#fileSKHUN').addClass('is-invalid');
+                            $('.errorUploadSKHUN').html(response.error.fileSKHUN);
+                        } else {
+                            $('input#fileSKHUN').removeClass('is-invalid');
+                            $('.errorUploadSKHUN').html('');
+                        }
+
+                        if (response.error.fileKK) {
+                            $('input#fileKK').addClass('is-invalid');
+                            $('.errorUploadKK').html(response.error.fileKK);
+                        } else {
+                            $('input#fileKK').removeClass('is-invalid');
+                            $('.errorUploadKK').html('');
+                        }
+
+                        if (response.error.fileAkte) {
+                            $('input#fileAkte').addClass('is-invalid');
+                            $('.errorUploadAkte').html(response.error.fileAkte);
+                        } else {
+                            $('input#fileAkte').removeClass('is-invalid');
+                            $('.errorUploadAkte').html('');
+                        }
+
+                        if (response.error.kip) {
+                            $('input#kip').addClass('is-invalid');
+                            $('.errorKIP').html(response.error.kip);
+                        } else {
+                            $('input#kip').removeClass('is-invalid');
+                            $('.errorKIP').html('');
+                        }
+
+                        if (response.error.fileKIP) {
+                            $('input#fileKIP').addClass('is-invalid');
+                            $('.errorUploadKIP').html(response.error.fileKIP);
+                        } else {
+                            $('input#fileKIP').removeClass('is-invalid');
+                            $('.errorUploadKIP').html('');
+                        }
+
+                        if (response.error.kis) {
+                            $('input#kis').addClass('is-invalid');
+                            $('.errorKIS').html(response.error.kis);
+                        } else {
+                            $('input#kis').removeClass('is-invalid');
+                            $('.errorKIS').html('');
+                        }
+
+                        if (response.error.fileKIS) {
+                            $('input#fileKIS').addClass('is-invalid');
+                            $('.errorUploadKIS').html(response.error.fileKIS);
+                        } else {
+                            $('input#fileKIS').removeClass('is-invalid');
+                            $('.errorUploadKIS').html('');
+                        }
+
+                        if (response.error.pkh) {
+                            $('input#pkh').addClass('is-invalid');
+                            $('.errorPKH').html(response.error.pkh);
+                        } else {
+                            $('input#pkh').removeClass('is-invalid');
+                            $('.errorPKH').html('');
+                        }
+
+                        if (response.error.filePKH) {
+                            $('input#filePKH').addClass('is-invalid');
+                            $('.errorUploadPKH').html(response.error.filePKH);
+                        } else {
+                            $('input#filePKH').removeClass('is-invalid');
+                            $('.errorUploadPKH').html('');
+                        }
+
+                    } else {
+                        Swal.fire({
+                            title: 'Sedang menyimpan data',
+                            timer: 1000,
+                            allowEscapeKey: false,
+                            allowOutsideClick: false,
+                            onOpen: function() {
+                                Swal.showLoading()
+                            }
+                        }).then(
+                            (dismiss) => {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Yeay!',
+                                    text: 'Data berhasil disimpan',
+                                    timer: 1000,
+                                    showConfirmButton: false
+                                }).then(
+                                    (dismiss) => {
+                                        progressBarNext(4);
+                                        previewCetak();
+                                    }
+                                )
+                            }
+                        );
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
                 }
-            );
+            });
+
 
         });
     });
