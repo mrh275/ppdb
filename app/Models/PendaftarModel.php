@@ -32,4 +32,8 @@ class PendaftarModel extends Model
 	{
 		$this->db->table('data_periodik')->insert($periodik);
 	}
+	public function upload($upload)
+	{
+		$this->db->table('data_upload')->insert($upload);
+	}
 }
