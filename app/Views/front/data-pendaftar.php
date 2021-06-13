@@ -23,9 +23,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="<?= base_url('pendaftar/tambah-pendaftar') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Pendaftar</a>
-                            <button class="btn btn-success" type="button"><i class="fa fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger" type="button"><i class="fas fa-trash"></i> Hapus</button>
+                            <a href="<?= base_url('pendaftar/tambah-pendaftar') ?>" class="btn btn-primary tombol-tambah"><i class="fas fa-plus"></i> Tambah Pendaftar</a>
+                            <button class="btn btn-success tombol-edit" type="button"><i class="fa fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger tombol-hapus" type="button"><i class="fas fa-trash"></i> Hapus</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
