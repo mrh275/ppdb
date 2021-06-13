@@ -124,6 +124,22 @@ body div.content-wrapper .progressbar .step:last-child .bullet:after {
   display: none;
 }
 
+body div.card .card-header .tombol-tambah {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+body div.card .card-header .tombol-edit {
+  border-radius: 0;
+  position: relative;
+  left: -3px;
+}
+
+body div.card .card-header .tombol-hapus {
+  border-radius: 0 0.25rem 0.25rem 0;
+  position: relative;
+  left: -6px;
+}
+
 body table.table-hover tbody tr:hover {
   background-color: rgba(0, 119, 255, 0.3) !important;
   cursor: pointer;

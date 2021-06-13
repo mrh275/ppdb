@@ -146,6 +146,24 @@ body {
     }
   }
 
+  div.card {
+    .card-header {
+      .tombol-tambah {
+        border-radius: 0.25rem 0 0 0.25rem;
+      }
+      .tombol-edit {
+        border-radius: 0;
+        position: relative;
+        left: -3px;
+      }
+      .tombol-hapus {
+        border-radius: 0 0.25rem 0.25rem 0;
+        position: relative;
+        left: -6px;
+      }
+    }
+  }
+
   table.table-hover {
     tbody {
       tr:hover {
