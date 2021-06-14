@@ -260,10 +260,19 @@
     $(document).ready(function() {
         $('.form-upload').submit(function(e) {
             e.preventDefault();
+
+            let form = $(this)[0];
+
+            let data = new FormData(form);
+
             $.ajax({
                 type: "post",
                 url: $(this).attr("action"),
-                data: $(this).serialize(),
+                data: data,
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                cache: false,
                 dataType: "json",
                 success: function(response) {
                     if (response.error) {
