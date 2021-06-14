@@ -125,7 +125,7 @@
 
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2021 - <?= date('Y') ?> <a href="https://sman1rawamerta.sch.id">SMA Negeri 1 Rawamerta</a>.</strong>
+            <strong>Copyright &copy; 2021 - <?= date('Y') ?> <a href="https://sman1rawamerta.sch.id" target="_blank">SMA Negeri 1 Rawamerta</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 Made with <i class="fas fa-heart" style="color: red;"></i> by Muhamad Ramdani Hidayatullah
