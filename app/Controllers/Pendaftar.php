@@ -560,63 +560,54 @@ class Pendaftar extends BaseController
 			if (!$this->validate([
 
 				'fileIjazah'  => [
-					'rules' 	=> 'uploaded[fileIjazah]|max_size[fileIjazah,1024]|is_image[fileIjazah]|ext_in[fileIjazah,image/png,image/jpg]',
+					'rules' 	=> 'uploaded[fileIjazah]|max_size[fileIjazah,1024]|is_image[fileIjazah]|mime_in[fileIjazah,image/png,image/jpg,image/jpeg,image/jpeg]',
 					'errors'    => [
 						'uploaded'  => 'Silahkan pilih lampiran Ijazah/Surat Keterangan Lulus terlebih dahulu!',
 						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
-						'ext_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
+						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
 				],
 				'fileSKHUN'  => [
-					'rules' 	=> 'uploaded[fileSKHUN]|max_size[fileSKHUN,1024]|is_image[fileSKHUN]|ext_in[fileSKHUN,image/png,image/jpg]',
+					'rules' 	=> 'uploaded[fileSKHUN]|max_size[fileSKHUN,1024]|is_image[fileSKHUN]|mime_in[fileSKHUN,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
 						'uploaded'  => 'Silahkan pilih lampiran SKHUN/Transkrip Nilai terlebih dahulu!',
 						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
-						'ext_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
+						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
 				],
 				'fileKK'  => [
-					'rules' 	=> 'uploaded[fileKK]|max_size[fileKK,1024]|is_image[fileKK]|ext_in[fileKK,image/png,image/jpg]',
+					'rules' 	=> 'uploaded[fileKK]|max_size[fileKK,1024]|is_image[fileKK]|mime_in[fileKK,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
 						'uploaded'  => 'Silahkan pilih lampiran Kartu Keluarga (KK) terlebih dahulu!',
 						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
-						'ext_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
-					]
-				],
-				'fileAkte'  => [
-					'rules' 	=> 'uploaded[fileAkte]|max_size[fileAkte,1024]|is_image[fileAkte]|ext_in[fileAkte,image/png,image/jpg]',
-					'errors'    => [
-						'uploaded'  => 'Silahkan pilih lampiran Akta Kelahiran terlebih dahulu!',
-						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
-						'is_image'	=> 'File yang anda masukan, bukan gambar.',
-						'ext_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
+						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
 				],
 				'fileKIP'  => [
-					'rules' 	=> 'max_size[fileKIP,1024]|is_image[fileKIP]|ext_in[fileKIP,image/png,image/jpg]',
+					'rules' 	=> 'max_size[fileKIP,1024]|is_image[fileKIP]|mime_in[fileKIP,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
 						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
-						'ext_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
+						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
 				],
 				'fileKIS'  => [
-					'rules' 	=> 'max_size[fileKIS,1024]|is_image[fileKIS]|ext_in[fileKIS,image/png,image/jpg]',
+					'rules' 	=> 'max_size[fileKIS,1024]|is_image[fileKIS]|mime_in[fileKIS,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
 						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
-						'ext_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
+						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
 				],
 				'filePKH'  => [
-					'rules' 	=> 'max_size[filePKH,1024]|is_image[filePKH]|ext_in[filePKH,image/png,image/jpg]',
+					'rules' 	=> 'max_size[filePKH,1024]|is_image[filePKH]|mime_in[filePKH,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
 						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
-						'ext_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
+						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
 				],
 
@@ -658,15 +649,61 @@ class Pendaftar extends BaseController
 
 				$namaBaru = $this->request->getVar('no_regis');
 
+				if ($rawUpload['fileIjazah']->getError() == 4) {
+					$final['ijazah'] = 'default.jpg';
+				} else {
+					$final['ijazah'] = $namaBaru . '-ijazah.' . $ext['ijazah'];
+					$rawUpload['fileIjazah']->move('asset/img/ijazah', $final['ijazah']);
+				}
+				if ($rawUpload['fileSKHUN']->getError() == 4) {
+					$final['skhun'] = 'default.jpg';
+				} else {
+					$final['skhun'] = $namaBaru . '-skhun.' . $ext['skhun'];
+					$rawUpload['fileSKHUN']->move('asset/img/skhun', $final['skhun']);
+				}
+				if ($rawUpload['fileKK']->getError() == 4) {
+					$final['kk'] = 'default.jpg';
+				} else {
+					$final['kk'] = $namaBaru . '-kk.' . $ext['kk'];
+					$rawUpload['fileKK']->move('asset/img/kk', $final['kk']);
+				}
+				if ($rawUpload['fileAkte']->getError() == 4) {
+					$final['akte'] = 'default.jpg';
+				} else {
+					$final['akte'] = $namaBaru . '-akte.' . $ext['akte'];
+					$rawUpload['fileAkte']->move('asset/img/akte', $final['akte']);
+				}
+				if ($rawUpload['fileKIP']->getError() == 4) {
+					$final['kip'] = 'default.jpg';
+				} else {
+					$final['kip'] = $namaBaru . '-kip.' . $ext['kip'];
+					$rawUpload['fileKIP']->move('asset/img/kip', $final['kip']);
+				}
+				if ($rawUpload['fileKIS']->getError() == 4) {
+					$final['kis'] = 'default.jpg';
+				} else {
+					$final['kis'] = $namaBaru . '-kis.' . $ext['kis'];
+					$rawUpload['fileKIS']->move('asset/img/kis', $final['kis']);
+				}
+				if ($rawUpload['filePKH']->getError() == 4) {
+					$final['pkh'] = 'default.jpg';
+				} else {
+					$final['pkh'] = $namaBaru . '-pkh.' . $ext['pkh'];
+					$rawUpload['filePKH']->move('asset/img/pkh', $final['pkh']);
+				}
+
 				$upload = [
-					// 'no_regis'	=> $this->request->getVar('no_regis'),
-					'asal_sekolah'  => $this->request->getVar('asal_sekolah'),
-					'tinggi_badan'  => $this->request->getVar('tinggi_badan'),
-					'berat_badan'   => $this->request->getVar('berat_badan'),
-					'hobi'        	=> $this->request->getVar('hobi'),
-					'cita_cita'     => $this->request->getVar('cita_cita'),
-					'jarak_rumah'   => $this->request->getVar('jarak_rumah'),
-					'waktu_tempuh'  => $this->request->getVar('waktu_tempuh'),
+					'no_regis'		=> $this->request->getVar('no_regis'),
+					'file_ijazah'	=> $final['ijazah'],
+					'file_skhun'	=> $final['skhun'],
+					'file_kk'		=> $final['kk'],
+					'file_akte'		=> $final['akte'],
+					'kip'			=> $this->request->getVar('kip'),
+					'file_kip'		=> $final['kip'],
+					'kis'			=> $this->request->getVar('kis'),
+					'file_kis'		=> $final['kis'],
+					'kks'			=> $this->request->getVar('pkh'),
+					'file_kks'		=> $final['pkh'],
 					'created_at'    => date('Y-m-d H:i:s')
 				];
 
