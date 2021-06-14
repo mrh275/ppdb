@@ -24,7 +24,7 @@
                     <div class="card">
                         <!-- <div class="card-header">
                             <a href="<?= base_url('pendaftar/tambah-pendaftar') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Pendaftar</a>
-                            <button class="btn btn-success" type="button"><i class="fa fa-edit"></i> Edit</button>
+                            <button class="btn btn-success btn-valid-sm" type="button"><i class="fa fa-edit"></i> Edit</button>
                             <button class="btn btn-danger" type="button"><i class="fas fa-trash"></i> Hapus</button>
                         </div>
                         /.card-header -->
@@ -48,9 +48,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -60,9 +60,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -72,9 +72,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -84,9 +84,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -96,9 +96,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -108,9 +108,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -120,9 +120,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -132,9 +132,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -144,9 +144,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -156,9 +156,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -168,9 +168,9 @@
                                         <td>Karawang, 30 Januari 1997</td>
                                         <td>MTsN Jatisari</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-success btn-sm"><i class="fas fa-check-square"></i></button>
-                                            <button class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></button>
+                                            <button class="btn btn-warning btn-edit-sm btn-sm"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-success btn-valid-sm btn-sm"><i class="fas fa-check-square"></i></button>
+                                            <button class="btn btn-secondary btn-print-sm btn-sm"><i class="fas fa-print"></i></button>
                                         </td>
                                     </tr>
 
