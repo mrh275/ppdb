@@ -43,7 +43,7 @@
                                 <tbody>
                                     <?php foreach ($pendaftar as $cpd) : ?>
                                         <tr>
-                                            <input type="hidden" name="no_regis" value="<?= $cpd['no_daftar'] ?>">
+                                            <input type="hidden" id="no_regis" name="no_regis" value="<?= $cpd['no_daftar'] ?>">
                                             <td><?= $cpd['no_daftar'] ?></td>
                                             <td><?= $cpd['nama'] ?></td>
                                             <td><?= $cpd['nisn'] ?></td>
@@ -83,6 +83,25 @@
                 $(this).addClass('selected')
             }
         });
+
+
+    });
+
+    //Fitur tombol edit
+    $(document.querySelector(".tombol-edit")).on('click', function() {
+        if (document.querySelector("#datapendaftar tbody tr.selected") != null) {
+            alert("Sukses");
+        } else {
+            Swal.fire({
+                title: 'Oops!',
+                icon: 'warning',
+                timer: 2000,
+                showCloseButton: true,
+                showConfirmButton: true,
+                text: 'Silahkan pilih data terlebih dahulu.',
+                confirmButtonText: 'Tutup'
+            });
+        }
     });
 </script>
 
