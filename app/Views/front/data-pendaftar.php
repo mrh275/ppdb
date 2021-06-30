@@ -105,9 +105,40 @@
     });
 
     //Fitur tombol hapus
-    $(document.querySelector(".tombol-hapus")).on('click', function() {
+    $(document.querySelector(".tombol-hapus")).on('click', function(e) {
         if (document.querySelector("#datapendaftar tbody tr.selected") != null) {
-            alert("Sukses");
+            e.preventDefault();
+            Swal.fire({
+                title: 'Anda yakin?',
+                icon: 'warning',
+                showCloseButton: true,
+                showConfirmButton: true,
+                showCancelButton: true,
+                text: 'Anda akan menghapus data ' + '',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Tutup'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'post',
+                        url: '<?= base_url('pendaftar/hapus-pendaftar'); ?>',
+                        data: $(this).serialize(),
+                        dataType: 'json',
+                        success: function(response) {
+                            Swal.fire({
+                                title: 'Berhasil',
+                                icon: 'success',
+                                text: 'Data berhasil dihapus',
+                                confirmButtonText: 'Tutup',
+                                timer: 2000,
+                            });
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                        }
+                    });
+                }
+            });
         } else {
             Swal.fire({
                 title: 'Oops!',
