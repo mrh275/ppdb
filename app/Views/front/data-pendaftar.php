@@ -103,6 +103,23 @@
             });
         }
     });
+
+    //Fitur tombol hapus
+    $(document.querySelector(".tombol-hapus")).on('click', function() {
+        if (document.querySelector("#datapendaftar tbody tr.selected") != null) {
+            alert("Sukses");
+        } else {
+            Swal.fire({
+                title: 'Oops!',
+                icon: 'warning',
+                timer: 2000,
+                showCloseButton: true,
+                showConfirmButton: true,
+                text: 'Silahkan pilih data terlebih dahulu.',
+                confirmButtonText: 'Tutup'
+            });
+        }
+    });
 </script>
 
 <?= $this->endSection() ?>
