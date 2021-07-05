@@ -43,9 +43,9 @@
                                 <tbody>
                                     <?php foreach ($pendaftar as $cpd) : ?>
                                         <tr>
-                                            <input type="hidden" id="no_regis" name="no_regis" value="<?= $cpd['no_daftar'] ?>">
-                                            <td><?= $cpd['no_daftar'] ?></td>
-                                            <td><?= $cpd['nama'] ?></td>
+                                            <input type="hidden" id="no_regis" name="no_regis" value="<?= $cpd['no_regis'] ?>">
+                                            <td><?= $cpd['no_regis'] ?></td>
+                                            <td id="namaPendaftar"><?= $cpd['nama'] ?></td>
                                             <td><?= $cpd['nisn'] ?></td>
                                             <td><?= $cpd['nik'] ?></td>
                                             <td><?= $cpd['tempat_lahir'] . ', ' . $cpd['tanggal_lahir'] ?></td>
@@ -103,10 +103,12 @@
             });
         }
     });
-
     //Fitur tombol hapus
     $(document.querySelector(".tombol-hapus")).on('click', function(e) {
         if (document.querySelector("#datapendaftar tbody tr.selected") != null) {
+            let baris = document.querySelector("#datapendaftar tbody tr.selected");
+            let no_regis = baris.querySelector("input#no_regis").value;
+            let namaPendaftar = baris.querySelector("#namaPendaftar").innerHTML;
             e.preventDefault();
             Swal.fire({
                 title: 'Anda yakin?',
@@ -114,21 +116,24 @@
                 showCloseButton: true,
                 showConfirmButton: true,
                 showCancelButton: true,
-                text: 'Anda akan menghapus data ' + '',
+                text: 'Anda akan menghapus data ' + namaPendaftar + '?',
                 confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Tutup'
+                cancelButtonText: 'Tutup',
+                confirmButtonColor: '#d33'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
                         type: 'post',
-                        url: '<?= base_url('pendaftar/hapus-pendaftar'); ?>',
-                        data: $(this).serialize(),
+                        url: '<?= base_url('pendaftar/hapusPendaftar'); ?>',
+                        data: {
+                            no_regis: no_regis
+                        },
                         dataType: 'json',
                         success: function(response) {
                             Swal.fire({
                                 title: 'Berhasil',
                                 icon: 'success',
-                                text: 'Data berhasil dihapus',
+                                text: response.sukses,
                                 confirmButtonText: 'Tutup',
                                 timer: 2000,
                             });
