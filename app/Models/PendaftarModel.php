@@ -36,4 +36,13 @@ class PendaftarModel extends Model
 	{
 		$this->db->table('data_upload')->insert($upload);
 	}
+	public function hapusPendaftar($no_regis)
+	{
+		$this->db->table('biodata_pendaftar')->delete($no_regis);
+		$this->db->table('data_ayah')->delete($no_regis);
+		$this->db->table('data_ibu')->delete($no_regis);
+		$this->db->table('data_periodik')->delete($no_regis);
+		$this->db->table('data_upload')->delete($no_regis);
+		$this->db->table('data_wali')->delete($no_regis);
+	}
 }
