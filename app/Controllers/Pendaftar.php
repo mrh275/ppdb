@@ -252,7 +252,7 @@ class Pendaftar extends BaseController
 				echo json_encode($msg);
 			} else {
 				$data = [
-					'no_daftar'         => $this->request->getVar('no_regis'),
+					'no_regis'          => $this->request->getVar('no_regis'),
 					'nama'              => $this->request->getVar('nama'),
 					'jenis_kelamin'     => $this->request->getVar('jk'),
 					'nisn'              => $this->request->getVar('nisn'),
@@ -715,6 +715,24 @@ class Pendaftar extends BaseController
 
 				echo json_encode($msg);
 			}
+		}
+	}
+
+	public function hapusPendaftar()
+	{
+		if ($this->request->isAjax()) {
+
+			$no_regis = [
+				'no_regis' => $this->request->getVar('no_regis'),
+			];
+			$this->pendaftarModel->hapusPendaftar($no_regis);
+
+			$msg = [
+				'sukses' => 'Data berhasil dihapus'
+			];
+
+			echo json_encode($msg);
+		} else {
 		}
 	}
 }
