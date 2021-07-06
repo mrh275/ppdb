@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<div class="container">
+<div class="container container-bg">
     <div class="forms-container">
         <div class="signin-signup">
             <form action="" method="post" class="sign-in-form">
