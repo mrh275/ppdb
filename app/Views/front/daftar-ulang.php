@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <form action="<?= base_url('daftarulang/cekdataseleksi') ?>" class="form-group" method="post">
+    <form action="" class="form-group form-daftar-ulang" method="post">
         <div class="row mt-4">
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center">
@@ -40,7 +40,59 @@
 </div>
 
 <script>
-
+    $(document).ready(function() {
+        $('.form-daftar-ulang').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: '<?= base_url('daftarulang/cekdataseleksi') ?>',
+                data: $(this).serialize(),
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        Swal.fire({
+                            title: response.error,
+                            icon: 'warning',
+                            text: response.error
+                        })
+                    } else {
+                        Swal.fire({
+                            title: 'Sedang mencari data',
+                            timer: 1000,
+                            allowEscapeKey: false,
+                            allowOutsideClick: false,
+                            onOpen: function() {
+                                Swal.showLoading()
+                            }
+                        }).then(
+                            (dismiss) => {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: response.sukses,
+                                    html: '<table style="text-align : left"><tr><td><label for="noRegis">Nomor Pendaftaran &nbsp;</td><td>&nbsp;: ' + response.data.no_regis + '</td></tr><tr><td><label for="nama">Nama Lengkap </td><td>&nbsp;: ' + response.data.nama + '</td></tr></table>',
+                                    width: 700,
+                                    showConfirmButton: true,
+                                    confirmButtonText: 'Daftar Ulang',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false,
+                                    showCancelButton: true,
+                                    cancelButtonText: 'Nanti dulu deh'
+                                }).then(
+                                    (dismiss) => {
+                                        progressBarNext(1);
+                                        formOrangtua();
+                                    }
+                                )
+                            }
+                        )
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                }
+            });
+        })
+    })
 </script>
 
 <?= $this->endSection() ?>
