@@ -204,7 +204,7 @@ body {
     }
   }
 
-  .container::before {
+  .container-bg::before {
     content: "";
     position: absolute;
     width: 2000px;
@@ -216,6 +216,15 @@ body {
     transform: translateY(-50%);
     z-index: 6;
     transition: 1.8s ease-in-out;
+  }
+
+  .daftar-ulang {
+    .logo {
+      max-width: 100px;
+    }
+    h4.daftar-ulang {
+      font-weight: 650;
+    }
   }
 }
 

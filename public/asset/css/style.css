@@ -253,7 +253,7 @@ body .container .panels-container .image {
   transition: 1.1s 0.4s ease-in-out;
 }
 
-body .container::before {
+body .container-bg::before {
   content: "";
   position: absolute;
   width: 2000px;
@@ -267,6 +267,14 @@ body .container::before {
   z-index: 6;
   -webkit-transition: 1.8s ease-in-out;
   transition: 1.8s ease-in-out;
+}
+
+body .daftar-ulang .logo {
+  max-width: 100px;
+}
+
+body .daftar-ulang h4.daftar-ulang {
+  font-weight: 650;
 }
 
 /* ANIMATION */
