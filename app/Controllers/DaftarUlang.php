@@ -7,7 +7,7 @@ class DaftarUlang extends BaseController
     public function login()
     {
         $data = [
-            'title'     => 'Daftar Ulang | PPDB SMA Negeri 1 Rawamerta',
+            'title'     => 'Portal Daftar Ulang | PPDB SMA Negeri 1 Rawamerta',
         ];
 
         return view('front/daftar-ulang', $data);
@@ -33,5 +33,14 @@ class DaftarUlang extends BaseController
                 echo json_encode($msg);
             }
         }
+    }
+
+    public function formDaftarUlang()
+    {
+        $data = [
+            'title'     => 'Formulir Daftar Ulang | PPDB SMA Negeri 1 Rawamerta',
+        ];
+
+        return view('front/form-daftar-ulang', $data);
     }
 }
