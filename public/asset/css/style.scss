@@ -365,9 +365,11 @@ body {
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 576px) {
   body {
-    .container:before {
+    height: 100% !important;
+    overflow-y: scroll;
+    .container-bg:before {
       bottom: 72%;
       left: 50%;
     }
@@ -378,6 +380,10 @@ body {
     }
 
     .container {
+      height: auto;
+      h4.daftar-ulang {
+        text-align: center;
+      }
       .forms-container {
         .signin-signup {
           form {
@@ -396,6 +402,32 @@ body {
           }
         }
       }
+    }
+
+    .daftar-ulang-page {
+      padding: 0;
+      a.navbar-brand {
+        display: none;
+      }
+      ul.navbar-nav {
+        flex-direction: row;
+
+        li {
+          padding: 2px 20px 2px 20px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+
+    .header-daftar-ulang {
+      display: block !important;
+      img.brand-daftar-ulang {
+        max-width: 80px;
+      }
+    }
+
+    .formulir-daftar-ulang {
+      margin-bottom: 5em;
     }
   }
 }
