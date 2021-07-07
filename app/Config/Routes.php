@@ -38,6 +38,7 @@ $routes->get('/pendaftar/data-pendaftar', 'Pendaftar::dataPendaftar');
 $routes->get('/pendaftar/validasi-pendaftar', 'Validasi::pendaftar');
 $routes->get('/pengaturan/user-level', 'Pengaturan::userLevel');
 $routes->get('/daftar-ulang', 'DaftarUlang::login');
+$routes->get('/daftar-ulang/form-daftar-ulang', 'DaftarUlang::formDaftarUlang');
 
 /*
  * --------------------------------------------------------------------
