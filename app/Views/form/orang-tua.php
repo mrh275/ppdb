@@ -67,7 +67,20 @@
     <div class="col-lg-9">
         <select name="pekerjaan_ayah" id="pekerjaanAyah" class="form-control">
             <option value="">Pilih :</option>
-            <option value="1">Buruh</option>
+            <option value="1">Tidak Bekerja</option>
+            <option value="2">Nelayan</option>
+            <option value="3">Petani</option>
+            <option value="4">Peternak</option>
+            <option value="5">PNS/TNI/POLRI</option>
+            <option value="6">Karyawan Swasta</option>
+            <option value="7">Pedagang Kecil</option>
+            <option value="8">Pedagang Besar</option>
+            <option value="9">Wiraswasta</option>
+            <option value="10">Wirausaha</option>
+            <option value="11">Buruh</option>
+            <option value="12">Pensiunan</option>
+            <option value="13">Meninggal Dunia</option>
+            <option value="99">Lainnya</option>
         </select>
         <div class="invalid-feedback errorPekerjaanAyah">
         </div>
@@ -80,7 +93,13 @@
     <div class="col-lg-9">
         <select name="penghasilan_ayah" id="penghasilanAyah" class="form-control">
             <option value="">Pilih :</option>
-            <option value="1">500.000</option>
+            <option value="1">Kurang dari 500.000</option>
+            <option value="2">500.000 - 999.999</option>
+            <option value="3">1 juta - 1.999.999</option>
+            <option value="4">2 juta - 4.999.999</option>
+            <option value="5">5 juta - 20 juta</option>
+            <option value="6">lebih dari 20 juta</option>
+            <option value="7">Tidak Berpenghasilan</option>
         </select>
         <div class="invalid-feedback errorPenghasilanAyah">
         </div>
@@ -152,7 +171,20 @@
     <div class="col-lg-9">
         <select name="pekerjaan_ibu" id="pekerjaanIbu" class="form-control">
             <option value="">Pilih :</option>
-            <option value="1">Ibu Rumah Tangga</option>
+            <option value="1">Tidak Bekerja</option>
+            <option value="2">Nelayan</option>
+            <option value="3">Petani</option>
+            <option value="4">Peternak</option>
+            <option value="5">PNS/TNI/POLRI</option>
+            <option value="6">Karyawan Swasta</option>
+            <option value="7">Pedagang Kecil</option>
+            <option value="8">Pedagang Besar</option>
+            <option value="9">Wiraswasta</option>
+            <option value="10">Wirausaha</option>
+            <option value="11">Buruh</option>
+            <option value="12">Pensiunan</option>
+            <option value="13">Meninggal Dunia</option>
+            <option value="99">Lainnya</option>
         </select>
         <div class="invalid-feedback errorPekerjaanIbu">
         </div>
@@ -165,7 +197,13 @@
     <div class="col-lg-9">
         <select name="penghasilan_ibu" id="penghasilanIbu" class="form-control">
             <option value="">Pilih :</option>
-            <option value="1">Tidak ada</option>
+            <option value="1">Kurang dari 500.000</option>
+            <option value="2">500.000 - 999.999</option>
+            <option value="3">1 juta - 1.999.999</option>
+            <option value="4">2 juta - 4.999.999</option>
+            <option value="5">5 juta - 20 juta</option>
+            <option value="6">lebih dari 20 juta</option>
+            <option value="7">Tidak Berpenghasilan</option>
         </select>
         <div class="invalid-feedback errorPenghasilanIbu">
         </div>
@@ -237,7 +275,20 @@
     <div class="col-lg-9">
         <select name="pekerjaan_wali" id="pekerjaan_wali" class="form-control">
             <option value="">Pilih :</option>
-            <option value="1">Petani</option>
+            <option value="1">Tidak Bekerja</option>
+            <option value="2">Nelayan</option>
+            <option value="3">Petani</option>
+            <option value="4">Peternak</option>
+            <option value="5">PNS/TNI/POLRI</option>
+            <option value="6">Karyawan Swasta</option>
+            <option value="7">Pedagang Kecil</option>
+            <option value="8">Pedagang Besar</option>
+            <option value="9">Wiraswasta</option>
+            <option value="10">Wirausaha</option>
+            <option value="11">Buruh</option>
+            <option value="12">Pensiunan</option>
+            <option value="13">Meninggal Dunia</option>
+            <option value="99">Lainnya</option>
         </select>
         <div class="invalid-feedback">
         </div>
@@ -250,7 +301,13 @@
     <div class="col-lg-9">
         <select name="penghasilan_wali" id="penghasilan_wali" class="form-control">
             <option value="">Pilih :</option>
-            <option value="1">1.000.000</option>
+            <option value="1">Kurang dari 500.000</option>
+            <option value="2">500.000 - 999.999</option>
+            <option value="3">1 juta - 1.999.999</option>
+            <option value="4">2 juta - 4.999.999</option>
+            <option value="5">5 juta - 20 juta</option>
+            <option value="6">lebih dari 20 juta</option>
+            <option value="7">Tidak Berpenghasilan</option>
         </select>
         <div class="invalid-feedback">
         </div>
@@ -392,7 +449,6 @@
                                     showConfirmButton: false
                                 }).then(
                                     (dismiss) => {
-                                        progressBarNext(2);
                                         formPeriodik();
                                     }
                                 )
