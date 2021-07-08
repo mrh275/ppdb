@@ -6,6 +6,7 @@
     </dic>
 </div>
 <div class="row mt-3">
+    <input type="hidden" name="no_regis" value="<?= $noRegis ?>">
     <div class="col-lg-3 d-flex align-items-center">
         <label for="asal_sekolah">Nama Sekolah Asal (SMP/MTs)</label>
     </div>
@@ -195,7 +196,6 @@
                                     showConfirmButton: false
                                 }).then(
                                     (dismiss) => {
-                                        progressBarNext(3);
                                         formUpload();
                                     }
                                 )
