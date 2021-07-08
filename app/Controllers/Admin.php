@@ -7,6 +7,9 @@ class Admin extends BaseController
 
     public function dashboard()
     {
+        if (!session()->userRole) {
+            return redirect()->to('daftar-ulang');
+        }
 
         $data = [
             'title'         => 'Dashboard | PPDB SMA Negeri 1 Rawamerta',
