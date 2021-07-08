@@ -9,19 +9,19 @@
     </a>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link menuBiodata" href="#">Biodata</span></a>
+            <a class="nav-link menuBiodata" href="javascript:void(0)">Biodata</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link menuDataOrangTua" href="#">Data Orang Tua</a>
+            <a class="nav-link menuDataOrangTua" href="javascript:void(0)">Data Orang Tua</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link menuDataPeriodik" href="#">Data Periodik</a>
+            <a class="nav-link menuDataPeriodik" href="javascript:void(0)">Data Periodik</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link menuDataUpload" href="#">Lampiran</a>
+            <a class="nav-link menuDataUpload" href="javascript:void(0)">Lampiran</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link menuLogout" href="#">Logout</a>
+            <a class="nav-link menuLogout" href="javascript:void(0)">Logout</a>
         </li>
     </ul>
 </nav>
@@ -83,7 +83,7 @@
     //Load form biodata view
     function formBiodata() {
         $.ajax({
-            url: "<?= base_url('pendaftar/formbiodata'); ?>",
+            url: "<?= base_url('daftarulang/formbiodata'); ?>",
             dataType: "json",
             success: function(response) {
                 $('.formulir-daftar-ulang').html(response.data);
@@ -97,10 +97,9 @@
     //Load form orang tua view
     function formOrangtua() {
         $.ajax({
-            url: "<?= base_url('pendaftar/formorangtua'); ?>",
+            url: "<?= base_url('daftarulang/formorangtua'); ?>",
             dataType: "json",
             success: function(response) {
-                $('.formulir-daftar-ulang .form-biodata').addClass('left');
                 $('.formulir-daftar-ulang').html("");
                 $('.formulir-daftar-ulang').html(response.data);
                 setTimeout(function() {
@@ -116,10 +115,9 @@
     //Load form periodik view
     function formPeriodik() {
         $.ajax({
-            url: "<?= base_url('pendaftar/formperiodik'); ?>",
+            url: "<?= base_url('daftarulang/formperiodik'); ?>",
             dataType: "json",
             success: function(response) {
-                $('.formulir-daftar-ulang .form-data-orangtua').addClass('left');
                 $('.formulir-daftar-ulang').html("");
                 $('.formulir-daftar-ulang').html(response.data);
                 setTimeout(function() {
@@ -135,10 +133,9 @@
     //Load form upload view
     function formUpload() {
         $.ajax({
-            url: "<?= base_url('pendaftar/formupload'); ?>",
+            url: "<?= base_url('daftarulang/formupload'); ?>",
             dataType: "json",
             success: function(response) {
-                $('.formulir-daftar-ulang .form-periodik').addClass('left');
                 $('.formulir-daftar-ulang').html("");
                 $('.formulir-daftar-ulang').html(response.data);
                 setTimeout(function() {
