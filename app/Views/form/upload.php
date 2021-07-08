@@ -8,6 +8,7 @@
         </dic>
     </div>
     <div class="row mt-3">
+        <input type="hidden" name="no_regis" value="<?= $noRegis ?>">
         <div class="col-lg-3 d-flex align-items-top">
             <label for="fileIjazah">Upload Scan Ijazah SMP/MTs</label>
         </div>
@@ -376,10 +377,9 @@
                                     showConfirmButton: false
                                 }).then(
                                     (dismiss) => {
-                                        progressBarNext(4);
-                                        previewCetak();
+                                        window.location.href = "<?= base_url('daftar-ulang/selesai'); ?>"
                                     }
-                                )
+                                );
                             }
                         );
                     }
