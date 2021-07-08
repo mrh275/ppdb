@@ -7,11 +7,11 @@
 
     <div class="row">
         <div class="col-11">
-            <button class="btn btn-danger float-right"><i class="fas fa-file-pdf"></i> Cetak Bukti Pendaftaran</button>
+            <button class="btn btn-danger cetak-pdf float-right"><i class="fas fa-file-pdf"></i> Cetak Bukti Pendaftaran</button>
         </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row mt-3 print-pdf">
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
             <div class="card">
