@@ -422,7 +422,7 @@
                             timer: 1000,
                             allowEscapeKey: false,
                             allowOutsideClick: false,
-                            onOpen: function() {
+                            didOpen: function() {
                                 Swal.showLoading()
                             }
                         }).then(
@@ -435,7 +435,6 @@
                                     showConfirmButton: false
                                 }).then(
                                     (dismiss) => {
-                                        progressBarNext(1);
                                         formOrangtua();
                                     }
                                 )
