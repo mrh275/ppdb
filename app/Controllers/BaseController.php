@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+
 /**
  * Class BaseController
  *
@@ -49,6 +50,6 @@ class BaseController extends Controller
 		session();
 		$this->menuModel = new \App\Models\MenuModel();
 		$this->pendaftarModel = new \App\Models\PendaftarModel();
-		$this->daftarUlang = new \App\Models\DaftarUlang();
+		$this->daftarUlang = new \App\Models\DaftarUlangModel();
 	}
 }
