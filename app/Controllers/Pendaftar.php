@@ -72,9 +72,12 @@ class Pendaftar extends BaseController
 	{
 
 		if ($this->request->isAJAX()) {
+			$data = [
+				'noRegis' => session()->no_daftar
+			];
 
 			$msg = [
-				'data' => view('form/periodik')
+				'data' => view('form/periodik', $data)
 			];
 
 			echo json_encode($msg);
@@ -87,8 +90,12 @@ class Pendaftar extends BaseController
 	{
 
 		if ($this->request->isAJAX()) {
+			$data = [
+				'noRegis' => session()->no_daftar
+			];
+
 			$msg = [
-				'data' => view('form/upload')
+				'data' => view('form/upload', $data)
 			];
 
 			echo json_encode($msg);
@@ -529,7 +536,7 @@ class Pendaftar extends BaseController
 				echo json_encode($msg);
 			} else {
 				$periodik = [
-					// 'no_regis'	=> $this->request->getVar('no_regis'),
+					'no_regis'		=> $this->request->getVar('no_regis'),
 					'asal_sekolah'  => $this->request->getVar('asal_sekolah'),
 					'tinggi_badan'  => $this->request->getVar('tinggi_badan'),
 					'berat_badan'   => $this->request->getVar('berat_badan'),
