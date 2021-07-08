@@ -78,8 +78,10 @@
                                     showCancelButton: true,
                                     cancelButtonText: 'Nanti dulu deh'
                                 }).then(
-                                    (dismiss) => {
-                                        window.location.href = "<?= base_url('daftar-ulang/form-daftar-ulang'); ?>"
+                                    (result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.href = "<?= base_url('daftar-ulang/form-daftar-ulang'); ?>"
+                                        }
                                     }
                                 )
                             }
