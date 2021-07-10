@@ -424,6 +424,9 @@ body .daftar-ulang h4.daftar-ulang {
     height: 100% !important;
     overflow-y: scroll;
   }
+  body .img-thumbnail {
+    margin: 50px 0 0 10px;
+  }
   body .container-bg:before {
     bottom: 72%;
     left: 50%;

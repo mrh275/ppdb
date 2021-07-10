@@ -369,6 +369,11 @@ body {
   body {
     height: 100% !important;
     overflow-y: scroll;
+
+    .img-thumbnail {
+      margin: 50px 0 0 10px;
+    }
+
     .container-bg:before {
       bottom: 72%;
       left: 50%;
