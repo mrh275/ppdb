@@ -1,4 +1,4 @@
-<?= form_open('pendaftar/addBiodata', ['class' => 'form-group form-biodata']) ?>
+<?= form_open('Pendaftar/addBiodata', ['class' => 'form-group form-biodata']) ?>
 <?= csrf_field(); ?>
 <div class="row mt-4">
     <div class="col-lg-12">

@@ -1,4 +1,4 @@
-<?= form_open('pendaftar/addPeriodik', ['class' => 'form-group form-periodik']) ?>
+<?= form_open('Pendaftar/addPeriodik', ['class' => 'form-group form-periodik']) ?>
 <?= csrf_field(); ?>
 <div class="row mt-4">
     <dic class="col-lg-12">
@@ -22,6 +22,8 @@
     </div>
     <div class="col-lg-9">
         <input type="text" class="form-control" id="nopesUN" name="nopes_un">
+        <div class="invalid-feedback errorNopesUN">
+        </div>
     </div>
 </div>
 <div class="row mt-3">
@@ -30,6 +32,8 @@
     </div>
     <div class="col-lg-9">
         <input type="text" class="form-control" id="noIjazah" name="no_ijazah">
+        <div class="invalid-feedback errorNoIjazah">
+        </div>
     </div>
 </div>
 <div class="row mt-3">
@@ -127,6 +131,22 @@
                         } else {
                             $('input#asalSekolah').removeClass('is-invalid');
                             $('.errorAsalSekolah').html('');
+                        }
+
+                        if (response.error.nopesUN) {
+                            $('input#nopesUN').addClass('is-invalid');
+                            $('.errorNopesUN').html(response.error.nopesUN);
+                        } else {
+                            $('input#nopesUN').removeClass('is-invalid');
+                            $('.errorNopesUN').html('');
+                        }
+
+                        if (response.error.noIjazah) {
+                            $('input#noIjazah').addClass('is-invalid');
+                            $('.errorNoIjazah').html(response.error.noIjazah);
+                        } else {
+                            $('input#noIjazah').removeClass('is-invalid');
+                            $('.errorNoIjazah').html('');
                         }
 
                         if (response.error.tinggiBadan) {

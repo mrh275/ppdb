@@ -1,4 +1,4 @@
-<?= form_open('pendaftar/addOrangTua', ['class' => 'form-group form-data-orangtua']) ?>
+<?= form_open('Pendaftar/addOrangTua', ['class' => 'form-group form-data-orangtua']) ?>
 <?= csrf_field(); ?>
 <div class="row mt-4">
     <dic class="col-lg-12">

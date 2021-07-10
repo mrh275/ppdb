@@ -1,4 +1,4 @@
-<form action="<?= base_url('pendaftar/upload') ?>" class="form-group form-upload" method="post" enctype="multipart/form-data">
+<form action="<?= base_url('Pendaftar/upload') ?>" class="form-group form-upload" method="post" enctype="multipart/form-data">
     <?= csrf_field(); ?>
 
     <!-- BERKAS AKADEMIS -->
