@@ -38,4 +38,14 @@ class HasilSeleksi extends BaseController
             }
         }
     }
+
+    public function belumDibuka()
+    {
+
+        $data = [
+            'title' => 'Halaman Hasil Seleksi Belum dibuka | PPDB SMA Negeri 1 Rawamerta'
+        ];
+
+        return view('front/belum-dibuka', $data);
+    }
 }
