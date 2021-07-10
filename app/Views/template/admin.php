@@ -75,7 +75,7 @@
     <script src="<?= base_url('asset/admin') ?>/dist/js/demo.js"></script>
     <script src="<?= base_url('asset/node_modules/sweetalert2/dist') ?>/sweetalert2.all.js"></script>
 
-    <link rel="shortcut icon" href="<?= base_url('asset/img/favicon.png') ?>" type="image/x-icon">
+    <link rel="icon" href="<?= base_url('asset/img') ?>/favicon.png" type="image/png">
 
 </head>
 
