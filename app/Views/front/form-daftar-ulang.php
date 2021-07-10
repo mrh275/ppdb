@@ -83,7 +83,7 @@
     //Load form biodata view
     function formBiodata() {
         $.ajax({
-            url: "<?= base_url('daftarulang/formbiodata'); ?>",
+            url: "<?= base_url('DaftarUlang/formBiodata'); ?>",
             dataType: "json",
             success: function(response) {
                 $('.formulir-daftar-ulang').html(response.data);
@@ -97,7 +97,7 @@
     //Load form orang tua view
     function formOrangtua() {
         $.ajax({
-            url: "<?= base_url('daftarulang/formorangtua'); ?>",
+            url: "<?= base_url('DaftarUlang/formOrangTua'); ?>",
             dataType: "json",
             success: function(response) {
                 $('.formulir-daftar-ulang').html("");
@@ -115,7 +115,7 @@
     //Load form periodik view
     function formPeriodik() {
         $.ajax({
-            url: "<?= base_url('daftarulang/formperiodik'); ?>",
+            url: "<?= base_url('DaftarUlang/formPeriodik'); ?>",
             dataType: "json",
             success: function(response) {
                 $('.formulir-daftar-ulang').html("");
@@ -133,7 +133,7 @@
     //Load form upload view
     function formUpload() {
         $.ajax({
-            url: "<?= base_url('daftarulang/formupload'); ?>",
+            url: "<?= base_url('DaftarUlang/formUpload'); ?>",
             dataType: "json",
             success: function(response) {
                 $('.formulir-daftar-ulang').html("");

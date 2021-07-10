@@ -90,7 +90,7 @@
         e.preventDefault();
         $.ajax({
             type: "post",
-            url: '<?= base_url('hasilseleksi/cekhasilseleksi') ?>',
+            url: '<?= base_url('HasilSeleksi/cekHasilSeleksi') ?>',
             data: $(this).serialize(),
             dataType: "json",
             success: function(response) {

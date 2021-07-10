@@ -45,7 +45,7 @@
             e.preventDefault();
             $.ajax({
                 type: "post",
-                url: '<?= base_url('daftarulang/cekdataseleksi') ?>',
+                url: '<?= base_url('DaftarUlang/cekDataSeleksi') ?>',
                 data: $(this).serialize(),
                 dataType: "json",
                 success: function(response) {
