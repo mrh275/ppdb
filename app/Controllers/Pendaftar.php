@@ -476,6 +476,18 @@ class Pendaftar extends BaseController
 						'required'  => 'Asal Sekolah (SMP/MTs) wajib diisi!'
 					]
 				],
+				'nopes_un'		=> [
+					'rules'		=> 'required[nopes_un]',
+					'errors'		=> [
+						'required'	=> 'Nomor Peserta UN Wajib diisi!'
+					]
+				],
+				'no_ijazah'		=> [
+					'rules'		=> 'required[no_ijazah]',
+					'errors'		=> [
+						'required'	=> 'Nomor Ijazah Wajib diisi!'
+					]
+				],
 				'tinggi_badan'  => [
 					'rules' 	=> 'required[tinggi_badan]|numeric|max_length[3]',
 					'errors'    => [
@@ -524,6 +536,8 @@ class Pendaftar extends BaseController
 				$msg = [
 					'error' => [
 						'asalSekolah'	=> $validation->getError('asal_sekolah'),
+						'nopesUN'		=> $validation->getError('nopes_un'),
+						'noIjazah'		=> $validation->getError('no_ijazah'),
 						'tinggiBadan'   => $validation->getError('tinggi_badan'),
 						'beratBadan'    => $validation->getError('berat_badan'),
 						'hobi'    		=> $validation->getError('hobi'),
@@ -538,6 +552,9 @@ class Pendaftar extends BaseController
 				$periodik = [
 					'no_regis'		=> $this->request->getVar('no_regis'),
 					'asal_sekolah'  => $this->request->getVar('asal_sekolah'),
+					'nopes_un'  	=> $this->request->getVar('nopes_un'),
+					'no_ijazah'  	=> $this->request->getVar('no_ijazah'),
+					'no_skhun' 		=> $this->request->getVar('no_skhun'),
 					'tinggi_badan'  => $this->request->getVar('tinggi_badan'),
 					'berat_badan'   => $this->request->getVar('berat_badan'),
 					'hobi'        	=> $this->request->getVar('hobi'),
@@ -570,7 +587,7 @@ class Pendaftar extends BaseController
 					'rules' 	=> 'uploaded[fileIjazah]|max_size[fileIjazah,1024]|is_image[fileIjazah]|mime_in[fileIjazah,image/png,image/jpg,image/jpeg,image/jpeg]',
 					'errors'    => [
 						'uploaded'  => 'Silahkan pilih lampiran Ijazah/Surat Keterangan Lulus terlebih dahulu!',
-						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
+						'max_size'	=> 'Ukuran gambar tidak boleh lebih dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
 						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
@@ -579,7 +596,7 @@ class Pendaftar extends BaseController
 					'rules' 	=> 'uploaded[fileSKHUN]|max_size[fileSKHUN,1024]|is_image[fileSKHUN]|mime_in[fileSKHUN,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
 						'uploaded'  => 'Silahkan pilih lampiran SKHUN/Transkrip Nilai terlebih dahulu!',
-						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
+						'max_size'	=> 'Ukuran gambar tidak boleh lebih dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
 						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
@@ -588,7 +605,7 @@ class Pendaftar extends BaseController
 					'rules' 	=> 'uploaded[fileKK]|max_size[fileKK,1024]|is_image[fileKK]|mime_in[fileKK,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
 						'uploaded'  => 'Silahkan pilih lampiran Kartu Keluarga (KK) terlebih dahulu!',
-						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
+						'max_size'	=> 'Ukuran gambar tidak boleh lebih dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
 						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
@@ -596,7 +613,7 @@ class Pendaftar extends BaseController
 				'fileKIP'  => [
 					'rules' 	=> 'max_size[fileKIP,1024]|is_image[fileKIP]|mime_in[fileKIP,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
-						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
+						'max_size'	=> 'Ukuran gambar tidak boleh lebih dari 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
 						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
@@ -604,7 +621,7 @@ class Pendaftar extends BaseController
 				'fileKIS'  => [
 					'rules' 	=> 'max_size[fileKIS,1024]|is_image[fileKIS]|mime_in[fileKIS,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
-						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
+						'max_size'	=> 'Ukuran gambar tidak boleh lebih dar 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
 						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
@@ -612,7 +629,7 @@ class Pendaftar extends BaseController
 				'filePKH'  => [
 					'rules' 	=> 'max_size[filePKH,1024]|is_image[filePKH]|mime_in[filePKH,image/png,image/jpg,image/jpeg]',
 					'errors'    => [
-						'max_size'	=> 'Ukuran gambar tidak boleh dari 1 Mb.',
+						'max_size'	=> 'Ukuran gambar tidak boleh lebih dar 1 Mb.',
 						'is_image'	=> 'File yang anda masukan, bukan gambar.',
 						'mime_in'	=> 'Ekstensi gambar hanya boleh jpg atau png.'
 					]
