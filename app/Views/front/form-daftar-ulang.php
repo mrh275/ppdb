@@ -148,7 +148,15 @@
         });
     }
 
+    function editData() {
+        $('input').removeAttr('readonly');
+        $('select').removeAttr('readonly');
+    }
+
     $(document).ready(function() {
+
+
+
         formBiodata();
 
         $('ul.navbar-nav a.menuBiodata').on('click', function() {
