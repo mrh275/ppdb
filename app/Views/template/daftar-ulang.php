@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="<?= base_url('asset/node_modules/sweetalert2/dist') ?>/sweetalert2.min.css">
     <link rel="stylesheet" href="<?= base_url('asset/css') ?>/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link type="text/css" rel="stylesheet" href="<?= base_url('asset/node_modules/lightgallery.js/dist') ?>/css/lightgallery.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
 
     <!-- JS Assets -->
     <script src="<?= base_url('asset/js') ?>/jquery.min.js"></script>
@@ -25,6 +27,8 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="<?= base_url('asset/node_modules/lightgallery.js/dist') ?>/js/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 </head>
 
