@@ -43,6 +43,7 @@ class DaftarUlang extends BaseController
             'title'     => 'Formulir Daftar Ulang | PPDB SMA Negeri 1 Rawamerta',
         ];
 
+
         return view('front/form-daftar-ulang', $data);
     }
 
@@ -59,8 +60,15 @@ class DaftarUlang extends BaseController
     {
 
         if ($this->request->isAJAX()) {
+
+            $noRegis = session()->no_daftar;
+
+            $data = [
+                'noRegis'       => $noRegis,
+            ];
+
             $msg = [
-                'data' => view('form/biodata'),
+                'data' => view('form/biodata', $data),
             ];
 
             echo json_encode($msg);
@@ -301,12 +309,6 @@ class DaftarUlang extends BaseController
                     'transportasi'      => $this->request->getVar('transportasi'),
                     'created_at'        => date('Y-m-d H:i:s')
                 ];
-
-                $sesi = [
-                    'no_daftar'   => $this->request->getVar('no_regis'),
-                ];
-
-                session()->set($sesi);
 
                 $this->pendaftarModel->addBiodata($data);
 
@@ -740,6 +742,62 @@ class DaftarUlang extends BaseController
 
                 echo json_encode($msg);
             }
+        }
+    }
+
+    public function getBiodata()
+    {
+        if ($this->request->isAJAX()) {
+            $noRegis = session()->no_daftar;
+
+            $msg = [
+                'data' => $this->daftarUlang->getBiodata($noRegis),
+            ];
+
+            echo json_encode($msg);
+        }
+    }
+
+    public function getDataOrangTua()
+    {
+        if ($this->request->isAJAX()) {
+            $noRegis = session()->no_daftar;
+
+            $msg = [
+                'ayah' => $this->daftarUlang->getDataAyah($noRegis),
+                'ibu' => $this->daftarUlang->getDataIbu($noRegis),
+                'wali' => $this->daftarUlang->getDataWali($noRegis),
+            ];
+
+            echo json_encode($msg);
+        }
+    }
+
+    public function getDataPeriodik()
+    {
+        if ($this->request->isAJAX()) {
+            $noRegis = session()->no_daftar;
+
+            $msg = [
+                'periodik' => $this->daftarUlang->getDataPeriodik($noRegis),
+
+            ];
+
+            echo json_encode($msg);
+        }
+    }
+
+    public function getDataUpload()
+    {
+        if ($this->request->isAJAX()) {
+            $noRegis = session()->no_daftar;
+
+            $msg = [
+                'upload' => $this->daftarUlang->getDataUpload($noRegis),
+
+            ];
+
+            echo json_encode($msg);
         }
     }
 }
