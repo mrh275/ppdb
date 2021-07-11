@@ -6,6 +6,12 @@
     </dic>
 </div>
 <input type="hidden" name="no_regis" value="<?= $noRegis ?>">
+
+<div class="row mt-3">
+    <div class="col-md-12 edit-data">
+
+    </div>
+</div>
 <div class="row mt-3">
     <div class="col-lg-3 d-flex align-items-center">
         <label for="nama_ayah">Nama Lengkap Ayah</label>
@@ -323,7 +329,107 @@
 <?= form_close() ?>
 
 <script>
+    function dataOrangTua() {
+        $.ajax({
+            url: "<?= base_url('DaftarUlang/getDataOrangTua'); ?>",
+            dataType: "json",
+            success: function(response) {
+                if (response.ayah || response.ibu || response.wali) {
+
+                    let elemenTombol = document.querySelector('div.edit-data');
+
+                    //Tombol Update Data
+                    let tombolUpdate = document.createElement('button');
+                    tombolUpdate.setAttribute('class', 'btn btn-primary update-data');
+                    tombolUpdate.setAttribute('type', 'button');
+                    tombolUpdate.setAttribute('onclick', 'updateData()');
+                    let iconTombolUpdate = document.createElement('i');
+                    iconTombolUpdate.setAttribute('class', 'fas fa-save');
+                    let textUpdate = document.createTextNode(' Update Data');
+                    tombolUpdate.appendChild(iconTombolUpdate);
+                    tombolUpdate.appendChild(textUpdate)
+
+                    //Tombol Edit Data
+                    let tombolEdit = document.createElement('button');
+                    tombolEdit.setAttribute('class', 'btn btn-success edit-data')
+                    tombolEdit.setAttribute('type', 'button');
+                    tombolEdit.setAttribute('onclick', 'editData()');
+                    let iconTombolEdit = document.createElement('i')
+                    iconTombolEdit.setAttribute('class', 'fas fa-edit');
+                    let textEdit = document.createTextNode(' Edit Data');
+                    tombolEdit.appendChild(iconTombolEdit);
+                    tombolEdit.appendChild(textEdit);
+
+                    elemenTombol.append(tombolUpdate, tombolEdit);
+
+                    document.querySelector('button.btn-simpan').remove();
+
+                    $('input').attr('readonly', true);
+                    $('select').attr('readonly', true);
+
+                    if (response.ayah) {
+                        document.querySelector('input#namaAyah').setAttribute('value', '')
+                        $('input#namaAyah').val(response.ayah.nama_ayah)
+
+                        document.querySelector('input#nikAyah').setAttribute('value', '')
+                        $('input#nikAyah').val(response.ayah.nik_ayah)
+
+                        document.querySelector('input#tahunLahirAyah').setAttribute('value', '')
+                        $('input#tahunLahirAyah').val(response.ayah.tahun_lahir_ayah)
+
+                        document.querySelector('select#pendidikanAyah').value = response.ayah.pendidikan_ayah;
+
+                        document.querySelector('select#pekerjaanAyah').value = response.ayah.pekerjaan_ayah;
+
+                        document.querySelector('select#penghasilanAyah').value = response.ayah.penghasilan_ayah;
+                    }
+
+                    if (response.ibu) {
+                        document.querySelector('input#namaIbu').setAttribute('value', '')
+                        $('input#namaIbu').val(response.ibu.nama_ibu)
+
+                        document.querySelector('input#nikIbu').setAttribute('value', '')
+                        $('input#nikIbu').val(response.ibu.nik_ibu)
+
+                        document.querySelector('input#tahunLahirIbu').setAttribute('value', '')
+                        $('input#tahunLahirIbu').val(response.ibu.tahun_lahir_ibu)
+
+                        document.querySelector('select#pendidikanIbu').value = response.ibu.pendidikan_ibu;
+
+                        document.querySelector('select#pekerjaanIbu').value = response.ibu.pekerjaan_ibu;
+
+                        document.querySelector('select#penghasilanIbu').value = response.ibu.penghasilan_ibu;
+                    }
+
+                    if (response.wali) {
+                        document.querySelector('input#namaWali').setAttribute('value', '')
+                        $('input#namaWali').val(response.wali.nama_wali)
+
+                        document.querySelector('input#nikWali').setAttribute('value', '')
+                        $('input#nikWali').val(response.wali.nik_wali)
+
+                        document.querySelector('input#tahunLahirWali').setAttribute('value', '')
+                        $('input#tahunLahirWali').val(response.wali.tahun_lahir_wali)
+
+                        document.querySelector('select#pendidikanWali').value = response.wali.pendidikan_wali;
+
+                        document.querySelector('select#pekerjaanWali').value = response.wali.pekerjaan_wali;
+
+                        document.querySelector('select#penghasilanWali').value = response.wali.penghasilan_wali;
+                    }
+
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    }
+
     $(document).ready(function() {
+
+        dataOrangTua();
+
         $('form.form-data-orangtua').submit(function(e) {
             e.preventDefault();
             $.ajax({
