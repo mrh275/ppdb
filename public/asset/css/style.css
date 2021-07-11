@@ -277,6 +277,29 @@ body .daftar-ulang h4.daftar-ulang {
   font-weight: 650;
 }
 
+body .formulir-daftar-ulang button.btn.edit-data,
+body .formulir-daftar-ulang button.btn.edit-data {
+  margin: 5px 10px 5px 10px;
+}
+
+body .formulir-daftar-ulang div.card-body.galeri a {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+body .formulir-daftar-ulang div.card-body.galeri a:hover {
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+}
+
+body .formulir-daftar-ulang div.card-body.galeri img {
+  max-width: 100%;
+  border: 1px solid black;
+  -webkit-box-shadow: 10px 10px 5px #707070 !important;
+          box-shadow: 10px 10px 5px #707070 !important;
+  margin: 10px !important;
+}
+
 /* ANIMATION */
 .container.sign-up-mode:before {
   -webkit-transform: translate(100%, -50%);

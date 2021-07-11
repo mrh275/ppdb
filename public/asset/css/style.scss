@@ -226,6 +226,30 @@ body {
       font-weight: 650;
     }
   }
+
+  .formulir-daftar-ulang {
+    button.btn.edit-data,
+    button.btn.edit-data {
+      margin: 5px 10px 5px 10px;
+    }
+
+    div.card-body.galeri {
+      a {
+        transition: 0.5s ease-in-out;
+      }
+
+      a:hover {
+        filter: brightness(80%);
+      }
+
+      img {
+        max-width: 100%;
+        border: 1px solid black;
+        box-shadow: 10px 10px 5px #707070 !important;
+        margin: 10px !important;
+      }
+    }
+  }
 }
 
 /* ANIMATION */
