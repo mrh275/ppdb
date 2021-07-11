@@ -7,8 +7,14 @@
             <h4 class="data-periodik">BERKAS AKADEMIS</h4>
         </dic>
     </div>
+
     <div class="row mt-3">
-        <input type="hidden" name="no_regis" value="<?= $noRegis ?>">
+        <div class="col-md-12 edit-data">
+
+        </div>
+    </div>
+    <input type="hidden" name="no_regis" value="<?= $noRegis ?>">
+    <div class="row mt-3 ijazah-input">
         <div class="col-lg-3 d-flex align-items-top">
             <label for="fileIjazah">Upload Scan Ijazah SMP/MTs</label>
         </div>
@@ -23,7 +29,7 @@
         </div>
     </div>
     <hr>
-    <div class="row mt-3">
+    <div class="row mt-3 skhun-input">
         <div class="col-lg-3 d-flex align-items-top">
             <label for="fileSKHUN">Upload Scan SKHUN SMP/MTs</label>
         </div>
@@ -38,7 +44,7 @@
         </div>
     </div>
     <hr>
-    <div class="row mt-3">
+    <div class="row mt-3 kk-input">
         <div class="col-lg-3 d-flex align-items-top">
             <label for="fileKK">Upload Scan Kartu Keluarga (KK)</label>
         </div>
@@ -53,7 +59,7 @@
         </div>
     </div>
     <hr>
-    <div class="row mt-3">
+    <div class="row mt-3 akte-input">
         <div class="col-lg-3 d-flex align-items-top">
             <label for="fileAkte">Upload Scan Akta Kelahiran</label>
         </div>
@@ -84,7 +90,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3 kip-input">
         <div class="col-lg-3 d-flex align-items-top">
             <label for="fileKIP">Upload Scan Kartu Indonesia Pintar (KIP)</label>
         </div>
@@ -108,7 +114,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3 kis-input">
         <div class="col-lg-3 d-flex align-items-top">
             <label for="fileKIS">Upload Scan Kartu Indonesia Sehat (KIS)</label>
         </div>
@@ -132,7 +138,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3 kks-input">
         <div class="col-lg-3 d-flex align-items-top">
             <label for="filePKH">Upload Scan Kartu PKH/KKS/KPS/SKTM</label>
         </div>
@@ -144,6 +150,62 @@
         </div>
         <div class="col-lg-2">
             <img src="<?= base_url('/asset/img') ?>/default.jpg" alt="" class="img-thumbnail img-pkh">
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="berkas-header">
+                        LAMPIRAN DAFTAR ULANG
+                    </h4>
+                </div>
+                <div class="card-body galeri">
+                    <div class="row">
+                        <div class="col-md-3 berkas">
+                            <a href="" data-fancybox="gallery1" class="fancybox ijazah">
+                                <img src="">
+                            </a>
+                        </div>
+                        <div class="col-md-3 berkas">
+                            <a href="" data-fancybox="gallery1" class="fancybox skhun">
+                                <img src="">
+                            </a>
+                        </div>
+                        <div class="col-md-3 berkas">
+                            <a href="" data-fancybox="gallery1" class="fancybox kk">
+                                <img src="">
+                            </a>
+                        </div>
+                        <div class="col-md-3 berkas">
+                            <a href="" data-fancybox="gallery1" class="fancybox akte">
+                                <img src="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 berkas">
+                            <a href="" data-fancybox="gallery1" class="fancybox kip">
+                                <img src="">
+                            </a>
+                        </div>
+                        <div class="col-md-3 berkas">
+                            <a href="" data-fancybox="gallery1" class="fancybox kis">
+                                <img src="">
+                            </a>
+                        </div>
+                        <div class="col-md-3 berkas">
+                            <a href="" data-fancybox="gallery1" class="fancybox kks">
+                                <img src="">
+                            </a>
+                        </div>
+                        <div class="col-md-3 berkas">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -258,7 +320,90 @@
         }
     }
 
+    function dataUpload() {
+        $.ajax({
+            url: "<?= base_url('DaftarUlang/getDataUpload'); ?>",
+            dataType: "json",
+            success: function(response) {
+                if (response.upload) {
+
+                    let elemenTombol = document.querySelector('div.edit-data');
+
+                    //Tombol Update Data
+                    let tombolUpdate = document.createElement('a');
+                    tombolUpdate.setAttribute('class', 'btn btn-primary update-data');
+                    tombolUpdate.setAttribute('type', 'button');
+                    // tombolUpdate.setAttribute('onclick', 'updateData()');
+                    tombolUpdate.setAttribute('href', '<?= base_url("asset/img/akte"); ?>/' + response.upload.file_akte);
+                    let iconTombolUpdate = document.createElement('i');
+                    iconTombolUpdate.setAttribute('class', 'fas fa-save');
+                    let textUpdate = document.createTextNode(' Update Data');
+                    tombolUpdate.appendChild(iconTombolUpdate);
+                    tombolUpdate.appendChild(textUpdate)
+
+                    //Tombol Edit Data
+                    let tombolEdit = document.createElement('button');
+                    tombolEdit.setAttribute('class', 'btn btn-success edit-data')
+                    tombolEdit.setAttribute('type', 'button');
+                    tombolEdit.setAttribute('onclick', 'editData()');
+                    let iconTombolEdit = document.createElement('i')
+                    iconTombolEdit.setAttribute('class', 'fas fa-edit');
+                    let textEdit = document.createTextNode(' Edit Data');
+                    tombolEdit.appendChild(iconTombolEdit);
+                    tombolEdit.appendChild(textEdit);
+
+                    elemenTombol.append(tombolUpdate, tombolEdit);
+
+                    document.querySelector('button.btn-simpan').remove();
+
+                    $('input').attr('readonly', true);
+                    $('select').attr('readonly', true);
+
+                    document.querySelector('div.ijazah-input').setAttribute('style', 'display:none;')
+                    document.querySelector('div.skhun-input').setAttribute('style', 'display:none;')
+                    document.querySelector('div.kk-input').setAttribute('style', 'display:none;')
+                    document.querySelector('div.akte-input').setAttribute('style', 'display:none;')
+                    document.querySelector('div.kip-input').setAttribute('style', 'display:none;')
+                    document.querySelector('div.kis-input').setAttribute('style', 'display:none;')
+                    document.querySelector('div.kks-input').setAttribute('style', 'display:none;')
+
+                    document.querySelector('input#kip').setAttribute('value', '')
+                    $('input#kip').val(response.upload.kip)
+
+                    document.querySelector('input#kis').setAttribute('value', '')
+                    $('input#kis').val(response.upload.kis)
+
+                    document.querySelector('input#pkh').setAttribute('value', '')
+                    $('input#pkh').val(response.upload.kks)
+
+                    let galeri = document.querySelector('.galeri');
+                    galeri.querySelector('.ijazah').setAttribute('href', '<?= base_url("asset/img/ijazah"); ?>/' + response.upload.file_ijazah)
+                    galeri.querySelector('.ijazah img').setAttribute('src', '<?= base_url("asset/img/ijazah"); ?>/' + response.upload.file_ijazah)
+                    galeri.querySelector('.skhun').setAttribute('href', '<?= base_url("asset/img/skhun"); ?>/' + response.upload.file_skhun)
+                    galeri.querySelector('.skhun img').setAttribute('src', '<?= base_url("asset/img/skhun"); ?>/' + response.upload.file_skhun)
+                    galeri.querySelector('.kk').setAttribute('href', '<?= base_url("asset/img/kk"); ?>/' + response.upload.file_kk)
+                    galeri.querySelector('.kk img').setAttribute('src', '<?= base_url("asset/img/kk"); ?>/' + response.upload.file_kk)
+                    galeri.querySelector('.akte').setAttribute('href', '<?= base_url("asset/img/akte"); ?>/' + response.upload.file_akte)
+                    galeri.querySelector('.akte img').setAttribute('src', '<?= base_url("asset/img/akte"); ?>/' + response.upload.file_akte)
+                    galeri.querySelector('.kip').setAttribute('href', '<?= base_url("asset/img/kip"); ?>/' + response.upload.file_kip)
+                    galeri.querySelector('.kip img').setAttribute('src', '<?= base_url("asset/img/kip"); ?>/' + response.upload.file_kip)
+                    galeri.querySelector('.kis').setAttribute('href', '<?= base_url("asset/img/kis"); ?>/' + response.upload.file_kis)
+                    galeri.querySelector('.kis img').setAttribute('src', '<?= base_url("asset/img/kis"); ?>/' + response.upload.file_kis)
+                    galeri.querySelector('.kks').setAttribute('href', '<?= base_url("asset/img/pkh"); ?>/' + response.upload.file_kks)
+                    galeri.querySelector('.kks img').setAttribute('src', '<?= base_url("asset/img/pkh"); ?>/' + response.upload.file_kks)
+
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    }
+
     $(document).ready(function() {
+
+        dataUpload();
+
         $('.form-upload').submit(function(e) {
             e.preventDefault();
 
