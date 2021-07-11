@@ -1,0 +1,9 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "lightgallery.js": "^1.4.0",
+    "sweetalert2": "^11.0.18"
+  }
+}
