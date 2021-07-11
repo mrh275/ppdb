@@ -6,11 +6,16 @@
     </div>
 </div>
 <div class="row mt-3">
+    <div class="col-md-12 edit-data">
+
+    </div>
+</div>
+<div class="row mt-3">
     <div class="col-lg-3 d-flex align-items-center">
         <label for="no_regis">Nomor Pendaftaran</label>
     </div>
     <div class="col-lg-9">
-        <input type="text" class="form-control" name="no_regis" id="no_regis">
+        <input type="text" class="form-control" readonly name="no_regis" id="no_regis" value="<?= $noRegis ?>">
         <div class="invalid-feedback errorNoRegis">
 
         </div>
@@ -278,7 +283,116 @@
 <?= form_close(); ?>
 
 <script>
+    function biodataPendaftar() {
+        $.ajax({
+            url: "<?= base_url('DaftarUlang/getBiodata'); ?>",
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+
+                    let elemenTombol = document.querySelector('div.edit-data');
+
+                    //Tombol Update Data
+                    let tombolUpdate = document.createElement('button');
+                    tombolUpdate.setAttribute('class', 'btn btn-primary update-data');
+                    tombolUpdate.setAttribute('type', 'button');
+                    tombolUpdate.setAttribute('onclick', 'updateData()');
+                    let iconTombolUpdate = document.createElement('i');
+                    iconTombolUpdate.setAttribute('class', 'fas fa-save');
+                    let textUpdate = document.createTextNode(' Update Data');
+                    tombolUpdate.appendChild(iconTombolUpdate);
+                    tombolUpdate.appendChild(textUpdate)
+
+                    //Tombol Edit Data
+                    let tombolEdit = document.createElement('button');
+                    tombolEdit.setAttribute('class', 'btn btn-success edit-data')
+                    tombolEdit.setAttribute('type', 'button');
+                    tombolEdit.setAttribute('onclick', 'editData()');
+                    let iconTombolEdit = document.createElement('i')
+                    iconTombolEdit.setAttribute('class', 'fas fa-edit');
+                    let textEdit = document.createTextNode(' Edit Data');
+                    tombolEdit.appendChild(iconTombolEdit);
+                    tombolEdit.appendChild(textEdit);
+
+                    elemenTombol.append(tombolUpdate, tombolEdit);
+
+
+                    document.querySelector('button.btn-simpan').remove();
+
+                    $('input').attr('readonly', true);
+                    $('select').attr('readonly', true);
+
+                    document.querySelector('input#nama').setAttribute('value', '')
+                    $('input#nama').val(response.data.nama)
+
+                    document.querySelector('select#jk').value = response.data.jenis_kelamin;
+
+                    document.querySelector('input#nisn').setAttribute('value', '')
+                    $('input#nisn').val(response.data.nisn)
+
+                    document.querySelector('input#asal_sekolah').setAttribute('value', '')
+                    $('input#asal_sekolah').val(response.data.asal_sekolah)
+
+                    document.querySelector('input#nik').setAttribute('value', '')
+                    $('input#nik').val(response.data.nik)
+
+                    document.querySelector('input#kk').setAttribute('value', '')
+                    $('input#kk').val(response.data.no_kk)
+
+                    document.querySelector('input#anak_ke_berapa').setAttribute('value', '')
+                    $('input#anak_ke_berapa').val(response.data.anak_ke_berapa)
+
+                    document.querySelector('input#tempatlahir').setAttribute('value', '')
+                    $('input#tempatlahir').val(response.data.tempat_lahir)
+
+                    document.querySelector('input#tgl_lahir').setAttribute('value', '')
+                    $('input#tgl_lahir').val(response.data.tanggal_lahir)
+
+                    document.querySelector('input#akte').setAttribute('value', '')
+                    $('input#akte').val(response.data.no_akte)
+
+                    document.querySelector('select#agama').value = response.data.agama;
+
+                    document.querySelector('input#alamat').setAttribute('value', '')
+                    $('input#alamat').val(response.data.alamat)
+
+                    document.querySelector('input#dusun').setAttribute('value', '')
+                    $('input#dusun').val(response.data.dusun)
+
+                    document.querySelector('input#rt').setAttribute('value', '')
+                    $('input#rt').val(response.data.rt)
+
+                    document.querySelector('input#rw').setAttribute('value', '')
+                    $('input#rw').val(response.data.rw)
+
+                    document.querySelector('input#desa').setAttribute('value', '')
+                    $('input#desa').val(response.data.desa)
+
+                    document.querySelector('input#kecamatan').setAttribute('value', '')
+                    $('input#kecamatan').val(response.data.kecamatan)
+
+                    document.querySelector('input#pos').setAttribute('value', '')
+                    $('input#pos').val(response.data.pos)
+
+                    document.querySelector('input#kota').setAttribute('value', '')
+                    $('input#kota').val(response.data.kota)
+
+                    document.querySelector('select#tinggal').value = response.data.tempat_tinggal;
+
+                    document.querySelector('select#transportasi').value = response.data.transportasi;
+
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+            }
+        });
+    }
+
     $(document).ready(function() {
+
+        biodataPendaftar();
+
         $('.form-biodata').submit(function(e) {
             e.preventDefault();
             $.ajax({
