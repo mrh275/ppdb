@@ -24,6 +24,12 @@ class HasilSeleksi extends BaseController
             $noRegis = $this->request->getVar('inputSeleksi');
             $dataPeserta = $this->daftarUlang->cekDataSeleksi($noRegis);
             if ($dataPeserta != null) {
+                $sesi = [
+                    'no_daftar' => $noRegis,
+                ];
+
+                session()->set($sesi);
+
                 $msg = [
                     'sukses'    => 'Selamat! Anda Lulus.',
                     'data'      => $dataPeserta
